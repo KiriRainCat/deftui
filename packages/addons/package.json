@@ -1,0 +1,44 @@
+{
+  "name": "@deftui/addons",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiriRainCat/deftui.git",
+    "directory": "packages/addons"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    "./form": {
+      "types": "./dist/form.d.mts",
+      "import": "./dist/form.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "check": "vp lint",
+    "fix": "vp check --fix"
+  },
+  "devDependencies": {
+    "@deftui/react": "^0.0.1",
+    "@tanstack/react-router": "^1.170.46",
+    "@types/react": "^19.3.0",
+    "react-hook-form": "^7.91.0",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@deftui/react": "^0.0.1",
+    "react": "^19",
+    "react-hook-form": "^7"
+  },
+  "peerDependenciesMeta": {
+    "react-hook-form": {
+      "optional": true
+    }
+  }
+}
