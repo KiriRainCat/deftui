@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "tests", "*.config.ts"],
+  "include": ["src", "tests"],
+
   "compilerOptions": {
-    "paths": { "@/*": ["./src/*"] }
+    "paths": { "@/*": ["./src/*"] },
+    "noEmit": false, // Keep composite for VSCode cross-package symbol operations.
+    "composite": true // While tsc --build should never be used; only project references.
   }
 }

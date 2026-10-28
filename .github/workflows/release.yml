@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+        with: { submodules: recursive }
+
+      - uses: voidzero-dev/setup-vp@v1.22.0
+        with: { cache: true, run-install: true }
+
+      - run: vp run -r build
+      - run: vp check
+
+      - run: npm publish
+        working-directory: packages/react
+
+      - run: npm publish
+        working-directory: packages/addons
+
+      - run: gh release create "$GITHUB_REF_NAME" --generate-notes
+        env: { GH_TOKEN: "${{ github.token }}" }

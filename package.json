@@ -2,18 +2,19 @@
   "name": "deftui-workspace",
   "private": true,
   "workspaces": [
-    "content/",
     "packages/*"
   ],
   "type": "module",
   "scripts": {
     "fix": "vp check --fix",
-    "prepare": "vp config --no-hooks --no-agent"
+    "prepare": "vp config --no-hooks --no-agent",
+    "release": "bumpp"
   },
   "devDependencies": {
     "@shadcn/lint": "^0.2.3",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/bun": "^1.4.4",
+    "bumpp": "^12.3.0",
     "typescript": "~7.0.2",
     "vite-plus": "catalog:"
   },

@@ -17,8 +17,8 @@ jobs:
       - uses: actions/checkout@v7
         with: { submodules: recursive }
 
-      - uses: voidzero-dev/setup-vp@v1.21.2
+      - uses: voidzero-dev/setup-vp@v1.22.0
         with: { cache: true, run-install: true }
 
-      - run: vp check
       - run: vp run -r build
+      - run: vp check
