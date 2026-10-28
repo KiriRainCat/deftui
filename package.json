@@ -1,0 +1,27 @@
+{
+  "name": "deftui-workspace",
+  "private": true,
+  "workspaces": [
+    "content/",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "fix": "vp check --fix",
+    "prepare": "vp config --no-hooks --no-agent"
+  },
+  "devDependencies": {
+    "@shadcn/lint": "^0.2.3",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/bun": "^1.4.4",
+    "typescript": "~7.0.2",
+    "vite-plus": "catalog:"
+  },
+  "overrides": {
+    "vite": "catalog:"
+  },
+  "catalog": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
+    "vite-plus": "1.4.0"
+  }
+}
