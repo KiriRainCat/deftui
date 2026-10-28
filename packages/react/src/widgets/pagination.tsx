@@ -1,0 +1,14 @@
+import * as PaginationUI from "@/vendor/shadcn/pagination";
+
+export const Pagination = Object.assign(PaginationUI.Pagination, {
+  Root: PaginationUI.Pagination,
+
+  Content: PaginationUI.PaginationContent,
+
+  Item: PaginationUI.PaginationItem,
+  Link: PaginationUI.PaginationLink,
+
+  Next: PaginationUI.PaginationNext,
+  Previous: PaginationUI.PaginationPrevious,
+  Ellipsis: PaginationUI.PaginationEllipsis,
+});
