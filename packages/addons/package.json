@@ -14,6 +14,10 @@
     "./form": {
       "types": "./dist/form.d.mts",
       "import": "./dist/form.mjs"
+    },
+    "./router": {
+      "types": "./dist/router.d.mts",
+      "import": "./dist/router.mjs"
     }
   },
   "publishConfig": {
@@ -33,10 +37,14 @@
   },
   "peerDependencies": {
     "@deftui/react": "^0.0.1",
+    "@tanstack/react-router": "^1",
     "react": "^19",
     "react-hook-form": "^7"
   },
   "peerDependenciesMeta": {
+    "@tanstack/react-router": {
+      "optional": true
+    },
     "react-hook-form": {
       "optional": true
     }

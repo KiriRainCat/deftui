@@ -9,6 +9,7 @@ export default defineConfig({
     inputOptions: { checks: { moduleLevelDirective: false } },
     entry: {
       form: "src/react-hook-form/index.ts",
+      router: "src/tanstack-router/index.ts",
     },
   },
 });
