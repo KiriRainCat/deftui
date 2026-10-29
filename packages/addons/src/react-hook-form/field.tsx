@@ -16,19 +16,20 @@ interface RHFFieldProps<
   label?: React.ReactNode;
   description?: React.ReactNode;
   fieldProps?: FieldRootProps;
-  children: (state: UseControllerReturn<Values, Name>["field"]) => React.ReactNode;
+  children: (state: UseControllerReturn<Values, Name>) => React.ReactNode;
 }
 
 export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Output = T>(props: RHFFieldProps<T, Name, Output>) {
   const { label, description, fieldProps, children, ...controllerProps } = props;
 
-  const { field, fieldState } = useController(controllerProps);
+  const controller = useController(controllerProps);
+  const { fieldState } = controller;
 
   return (
     <Field {...fieldProps} data-invalid={fieldState.invalid}>
       {label != null && <Field.Label>{label}</Field.Label>}
 
-      {children(field)}
+      {children(controller)}
 
       {description != null && <Field.Description>{description}</Field.Description>}
       {fieldState.invalid && <Field.Error errors={[fieldState.error]} />}
