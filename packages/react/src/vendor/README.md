@@ -30,7 +30,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `dropdown-menu` | [shadcn/dropdown-menu.tsx](shadcn/dropdown-menu.tsx) | [Dropdown Menu](https://ui.shadcn.com/docs/components/base/dropdown-menu) | — |
 | `empty` | [shadcn/empty.tsx](shadcn/empty.tsx) | [Empty](https://ui.shadcn.com/docs/components/base/empty) | — |
 | `field` | [shadcn/field.tsx](shadcn/field.tsx) | [Field](https://ui.shadcn.com/docs/components/base/field) | — |
-| `input` | [shadcn/input.tsx](shadcn/input.tsx) | [Input](https://ui.shadcn.com/docs/components/base/input) | — |
+| `input` | [shadcn/input.tsx](shadcn/input.tsx) | [Input](https://ui.shadcn.com/docs/components/base/input) | 参考 coss ui 处理自动填充的背景色和文字颜色 |
 | `input-group` | [shadcn/input-group.tsx](shadcn/input-group.tsx) | [Input Group](https://ui.shadcn.com/docs/components/base/input-group) | — |
 | `kbd` | [shadcn/kbd.tsx](shadcn/kbd.tsx) | [Kbd](https://ui.shadcn.com/docs/components/base/kbd) | — |
 | `label` | [shadcn/label.tsx](shadcn/label.tsx) | [Label](https://ui.shadcn.com/docs/components/base/label) | — |
