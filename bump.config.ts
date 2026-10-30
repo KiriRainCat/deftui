@@ -23,5 +23,8 @@ export default defineConfig({
       for (const field of deps) for (const name of names) if (manifest[field]?.[name]) manifest[field][name] = `^${state.newVersion}`;
       writeFileSync(path, `${JSON.stringify(manifest, null, 2)}\n`);
     }
+
+    // Ensures lockfile is up-to-date for workspace packages.
+    execFileSync("bun", ["install", "--lockfile-only", "--ignore-scripts"]);
   },
 });
