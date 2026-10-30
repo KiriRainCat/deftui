@@ -51,8 +51,16 @@ export default defineConfig({
       ],
       "@stylistic/padding-line-between-statements": [
         "warn",
-        { blankLine: "always", prev: "block-like", next: ["break", "continue", "return", "throw"] },
-        { blankLine: "never", prev: "function-overload", next: ["function", "function-overload"] },
+        { blankLine: "always", prev: "interface", next: ["*"] },
+
+        { blankLine: "always", prev: "*", next: "multiline-const" },
+        { blankLine: "always", prev: "multiline-const", next: "*" },
+
+        { blankLine: "always", prev: "*", next: "multiline-expression" },
+        { blankLine: "always", prev: "multiline-expression", next: "*" },
+
+        { blankLine: "always", prev: "multiline-block-like", next: ["break", "continue", "return", "throw"] },
+        { blankLine: "always", prev: { selector: "SwitchCase[consequent.length > 1]" }, next: ["case", "default"] },
       ],
     },
 
