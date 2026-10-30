@@ -22,7 +22,7 @@ export * from "./toast";
 export * from "./sidebar";
 export * from "./breadcrumb";
 export * from "./pagination";
-export * from "./image-display";
+export * from "./multimedia";
 export * from "./datetime-picker";
 
 export { Form } from "@/vendor/coss/form";
