@@ -221,5 +221,9 @@ export {
   DrawerFooter,
   DrawerTitle,
   DrawerDescription,
-  DrawerPrimitive,
+}
+
+export type DrawerHandle<Payload> = ReturnType<typeof DrawerPrimitive.createHandle<Payload>>
+export function createDrawerHandle<Payload>(): DrawerHandle<Payload> {
+  return DrawerPrimitive.createHandle<Payload>()
 }

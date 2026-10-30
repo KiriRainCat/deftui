@@ -7,9 +7,6 @@ export default defineConfig({
     unbundle: true,
     outputOptions: { preserveModules: true },
     inputOptions: { checks: { moduleLevelDirective: false } },
-    copy: ["src/*.css", "!src/vendor.css"],
-    entry: {
-      index: "src/index.ts",
-    },
+    copy: [{ from: ["src/*.css", "!src/vendor.css"] }, { from: "src/vendor/README.md", flatten: false }],
   },
 });

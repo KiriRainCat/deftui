@@ -154,5 +154,9 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-  DialogPrimitive,
+}
+
+export type DialogHandle<Payload> = ReturnType<typeof DialogPrimitive.createHandle<Payload>>
+export function createDialogHandle<Payload>(): DialogHandle<Payload> {
+  return DialogPrimitive.createHandle<Payload>()
 }

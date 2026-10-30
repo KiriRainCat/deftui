@@ -184,5 +184,9 @@ export {
   AlertDialogPortal,
   AlertDialogTitle,
   AlertDialogTrigger,
-  AlertDialogPrimitive,
+}
+
+export type AlertDialogHandle<Payload> = ReturnType<typeof AlertDialogPrimitive.createHandle<Payload>>
+export function createAlertDialogHandle<Payload>(): AlertDialogHandle<Payload> {
+  return AlertDialogPrimitive.createHandle<Payload>()
 }

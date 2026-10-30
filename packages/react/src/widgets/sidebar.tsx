@@ -1,7 +1,7 @@
 import * as SidebarUI from "@/vendor/shadcn/sidebar";
 export { useSidebar } from "@/vendor/shadcn/sidebar";
 
-export const Sidebar = Object.assign(SidebarUI.Sidebar, {
+export const Sidebar = /* @__PURE__ */ Object.assign(SidebarUI.Sidebar, {
   Provider: SidebarUI.SidebarProvider,
 
   Root: SidebarUI.Sidebar,

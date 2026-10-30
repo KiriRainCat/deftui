@@ -15,7 +15,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | — |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
 | `@coss/use-media-query` | [coss/hooks/use-media-query.ts](coss/hooks/use-media-query.ts) | [useMediaQuery](https://coss.com/ui/docs/hooks/use-media-query) | 断点：`md` 设为 768px，与 Tailwind 默认值一致 |
-| `alert-dialog` | [shadcn/alert-dialog.tsx](shadcn/alert-dialog.tsx) | [Alert Dialog](https://ui.shadcn.com/docs/components/base/alert-dialog) | 额外导出 `AlertDialogPrimitive` |
+| `alert-dialog` | [shadcn/alert-dialog.tsx](shadcn/alert-dialog.tsx) | [Alert Dialog](https://ui.shadcn.com/docs/components/base/alert-dialog) | 额外导出 `createAlertDialogHandle` 及其类型 |
 | `badge` | [shadcn/badge.tsx](shadcn/badge.tsx) | [Badge](https://ui.shadcn.com/docs/components/base/badge) | 提供 `info`、`success`、`warning` 语义变体 |
 | `breadcrumb` | [shadcn/breadcrumb.tsx](shadcn/breadcrumb.tsx) | [Breadcrumb](https://ui.shadcn.com/docs/components/base/breadcrumb) | — |
 | `button` | [shadcn/button.tsx](shadcn/button.tsx) | [Button](https://ui.shadcn.com/docs/components/base/button) | `pill` 提供全圆角；`isPending` 提供居中 Spinner 加载态 |
@@ -23,10 +23,10 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `calendar` | [shadcn/calendar.tsx](shadcn/calendar.tsx) | [Calendar](https://ui.shadcn.com/docs/components/base/calendar) | 将 `react-day-picker` 导入改为 `@daypicker/react` |
 | `card` | [shadcn/card.tsx](shadcn/card.tsx) | [Card](https://ui.shadcn.com/docs/components/base/card) | — |
 | `carousel` | [shadcn/carousel.tsx](shadcn/carousel.tsx) | [Carousel](https://ui.shadcn.com/docs/components/base/carousel) | — |
-| `combobox` | [shadcn/combobox.tsx](shadcn/combobox.tsx) | [Combobox](https://ui.shadcn.com/docs/components/base/combobox) | 额外导出 `ComboboxPrimitive` |
-| `dialog` | [shadcn/dialog.tsx](shadcn/dialog.tsx) | [Dialog](https://ui.shadcn.com/docs/components/base/dialog) | 额外导出 `DialogPrimitive` |
+| `combobox` | [shadcn/combobox.tsx](shadcn/combobox.tsx) | [Combobox](https://ui.shadcn.com/docs/components/base/combobox) | 额外导出 `createComboboxItems` 及其类型 |
+| `dialog` | [shadcn/dialog.tsx](shadcn/dialog.tsx) | [Dialog](https://ui.shadcn.com/docs/components/base/dialog) | 额外导出 `createDialogHandle` 及其类型 |
 | `direction` | [shadcn/direction.tsx](shadcn/direction.tsx) | [Direction](https://ui.shadcn.com/docs/components/base/direction) | — |
-| `drawer` | [shadcn/drawer.tsx](shadcn/drawer.tsx) | [Drawer](https://ui.shadcn.com/docs/components/base/drawer) | 额外导出 `DrawerPrimitive` |
+| `drawer` | [shadcn/drawer.tsx](shadcn/drawer.tsx) | [Drawer](https://ui.shadcn.com/docs/components/base/drawer) | 额外导出 `createDrawerHandle` 及其类型 |
 | `dropdown-menu` | [shadcn/dropdown-menu.tsx](shadcn/dropdown-menu.tsx) | [Dropdown Menu](https://ui.shadcn.com/docs/components/base/dropdown-menu) | — |
 | `empty` | [shadcn/empty.tsx](shadcn/empty.tsx) | [Empty](https://ui.shadcn.com/docs/components/base/empty) | — |
 | `field` | [shadcn/field.tsx](shadcn/field.tsx) | [Field](https://ui.shadcn.com/docs/components/base/field) | — |

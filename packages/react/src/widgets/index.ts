@@ -16,6 +16,8 @@ import * as TableUI from "@/vendor/shadcn/table";
 import * as TabsUI from "@/vendor/shadcn/tabs";
 import * as TooltipUI from "@/vendor/shadcn/tooltip";
 
+export * from "./utils";
+
 export * from "./toast";
 export * from "./sidebar";
 export * from "./breadcrumb";
@@ -37,12 +39,12 @@ export { ScrollArea } from "@/vendor/coss/scroll-area";
 
 // # [Skelton, Sheet] are not re-exported due to their limited use case.
 
-export const Kbd = Object.assign(KbdUI.Kbd, {
+export const Kbd = /* @__PURE__ */ Object.assign(KbdUI.Kbd, {
   Root: KbdUI.Kbd,
   Group: KbdUI.KbdGroup,
 });
 
-export const Tabs = Object.assign(TabsUI.Tabs, {
+export const Tabs = /* @__PURE__ */ Object.assign(TabsUI.Tabs, {
   Root: TabsUI.Tabs,
 
   List: TabsUI.TabsList,
@@ -51,7 +53,7 @@ export const Tabs = Object.assign(TabsUI.Tabs, {
   Content: TabsUI.TabsContent,
 });
 
-export const Card = Object.assign(CardUI.Card, {
+export const Card = /* @__PURE__ */ Object.assign(CardUI.Card, {
   Root: CardUI.Card,
 
   Header: CardUI.CardHeader,
@@ -63,7 +65,7 @@ export const Card = Object.assign(CardUI.Card, {
   Description: CardUI.CardDescription,
 });
 
-export const Field = Object.assign(FieldUI.Field, {
+export const Field = /* @__PURE__ */ Object.assign(FieldUI.Field, {
   Root: FieldUI.Field,
 
   Label: FieldUI.FieldLabel,
@@ -71,7 +73,7 @@ export const Field = Object.assign(FieldUI.Field, {
   Error: FieldUI.FieldError,
 });
 
-export const Empty = Object.assign(EmptyUI.Empty, {
+export const Empty = /* @__PURE__ */ Object.assign(EmptyUI.Empty, {
   Root: EmptyUI.Empty,
 
   Header: EmptyUI.EmptyHeader,
@@ -82,7 +84,7 @@ export const Empty = Object.assign(EmptyUI.Empty, {
   Description: EmptyUI.EmptyDescription,
 });
 
-export const Table = Object.assign(TableUI.Table, {
+export const Table = /* @__PURE__ */ Object.assign(TableUI.Table, {
   Root: TableUI.Table,
 
   Header: TableUI.TableHeader,
@@ -94,12 +96,12 @@ export const Table = Object.assign(TableUI.Table, {
   Cell: TableUI.TableCell,
 });
 
-export const Radio = Object.assign(RadioUI.RadioGroupItem, {
+export const Radio = /* @__PURE__ */ Object.assign(RadioUI.RadioGroupItem, {
   Root: RadioUI.RadioGroupItem,
   Group: RadioUI.RadioGroup,
 });
 
-export const Select = Object.assign(SelectUI.Select, {
+export const Select = /* @__PURE__ */ Object.assign(SelectUI.Select, {
   Root: SelectUI.Select,
 
   Trigger: SelectUI.SelectTrigger,
@@ -113,7 +115,7 @@ export const Select = Object.assign(SelectUI.Select, {
   Item: SelectUI.SelectItem,
 });
 
-export const Drawer = Object.assign(DrawerUI.Drawer, {
+export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
   Root: DrawerUI.Drawer,
   Trigger: DrawerUI.DrawerTrigger,
 
@@ -125,12 +127,9 @@ export const Drawer = Object.assign(DrawerUI.Drawer, {
 
   Title: DrawerUI.DrawerTitle,
   Description: DrawerUI.DrawerDescription,
-
-  Handle: DrawerUI.DrawerPrimitive.Handle,
-  createHandle: DrawerUI.DrawerPrimitive.createHandle,
 });
 
-export const Dialog = Object.assign(DialogUI.Dialog, {
+export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
   Root: DialogUI.Dialog,
   Trigger: DialogUI.DialogTrigger,
 
@@ -142,18 +141,15 @@ export const Dialog = Object.assign(DialogUI.Dialog, {
 
   Title: DialogUI.DialogTitle,
   Description: DialogUI.DialogDescription,
-
-  Handle: DialogUI.DialogPrimitive.Handle,
-  createHandle: DialogUI.DialogPrimitive.createHandle,
 });
 
-export const Tooltip = Object.assign(TooltipUI.Tooltip, {
+export const Tooltip = /* @__PURE__ */ Object.assign(TooltipUI.Tooltip, {
   Root: TooltipUI.Tooltip,
   Trigger: TooltipUI.TooltipTrigger,
   Content: TooltipUI.TooltipContent,
 });
 
-export const Popover = Object.assign(PopoverUI.Popover, {
+export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
   Root: PopoverUI.Popover,
   Trigger: PopoverUI.PopoverTrigger,
 
@@ -163,7 +159,7 @@ export const Popover = Object.assign(PopoverUI.Popover, {
   Description: PopoverUI.PopoverDescription,
 });
 
-export const Dropdown = Object.assign(DropdownUI.DropdownMenu, {
+export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
   Root: DropdownUI.DropdownMenu,
   Trigger: DropdownUI.DropdownMenuTrigger,
 
@@ -186,7 +182,7 @@ export const Dropdown = Object.assign(DropdownUI.DropdownMenu, {
   CheckboxItem: DropdownUI.DropdownMenuCheckboxItem,
 });
 
-export const Progress = Object.assign(ProgressUI.Progress, {
+export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
   Root: ProgressUI.Progress,
 
   Label: ProgressUI.ProgressLabel,
@@ -196,7 +192,7 @@ export const Progress = Object.assign(ProgressUI.Progress, {
   Indicator: ProgressUI.ProgressIndicator,
 });
 
-export const AlertDialog = Object.assign(AlertDialogUI.AlertDialog, {
+export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDialog, {
   Root: AlertDialogUI.AlertDialog,
   Trigger: AlertDialogUI.AlertDialogTrigger,
 
@@ -208,12 +204,9 @@ export const AlertDialog = Object.assign(AlertDialogUI.AlertDialog, {
 
   Title: AlertDialogUI.AlertDialogTitle,
   Description: AlertDialogUI.AlertDialogDescription,
-
-  Handle: AlertDialogUI.AlertDialogPrimitive.Handle,
-  createHandle: AlertDialogUI.AlertDialogPrimitive.createHandle,
 });
 
-export const InputGroup = Object.assign(InputGroupUI.InputGroup, {
+export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup, {
   Root: InputGroupUI.InputGroup,
 
   Addon: InputGroupUI.InputGroupAddon,
@@ -223,7 +216,7 @@ export const InputGroup = Object.assign(InputGroupUI.InputGroup, {
   Textarea: InputGroupUI.InputGroupTextarea,
 });
 
-export const Combobox = Object.assign(ComboboxUI.Combobox, {
+export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
   Root: ComboboxUI.Combobox,
 
   Content: ComboboxUI.ComboboxContent,
@@ -242,6 +235,4 @@ export const Combobox = Object.assign(ComboboxUI.Combobox, {
   GroupCollection: ComboboxUI.ComboboxCollection,
 
   Item: ComboboxUI.ComboboxItem,
-
-  createItems: ComboboxUI.ComboboxPrimitive.createItems,
 });

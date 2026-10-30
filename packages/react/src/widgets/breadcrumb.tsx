@@ -22,7 +22,7 @@ function BreadcrumbAST({ children, ...props }: ASTProps) {
   );
 }
 
-export const Breadcrumb = Object.assign(BreadcrumbUI.Breadcrumb, {
+export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb, {
   AST: BreadcrumbAST,
   Root: BreadcrumbUI.Breadcrumb,
 
