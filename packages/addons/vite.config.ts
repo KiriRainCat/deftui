@@ -8,6 +8,7 @@ export default defineConfig({
     outputOptions: { preserveModules: true },
     inputOptions: { checks: { moduleLevelDirective: false } },
     entry: {
+      modal: "src/modal-manager/index.ts",
       form: "src/react-hook-form/index.ts",
       router: "src/tanstack-router/index.ts",
     },

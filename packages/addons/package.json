@@ -14,6 +14,10 @@
     "**/*.css"
   ],
   "exports": {
+    "./modal": {
+      "types": "./dist/modal.d.mts",
+      "import": "./dist/modal.mjs"
+    },
     "./form": {
       "types": "./dist/form.d.mts",
       "import": "./dist/form.mjs"
