@@ -1,4 +1,5 @@
 import * as AlertDialogUI from "@/vendor/shadcn/alert-dialog";
+import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as CardUI from "@/vendor/shadcn/card";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
 import * as DialogUI from "@/vendor/shadcn/dialog";
