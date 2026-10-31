@@ -1,7 +1,7 @@
 "use client";
 
 import type { ModalView } from "./host";
-import type { ModalManager, ModalProps, ModalRegistry, ModalResult } from "./types";
+import type { ModalManager, ModalManagerOptions, ModalProps, ModalRegistry, ModalResult } from "./types";
 import type { ComponentType } from "react";
 
 import { useEffect, useSyncExternalStore } from "react";
@@ -21,17 +21,33 @@ const EMPTY: readonly ModalView[] = [];
 
 /**
  * Create once outside rendering; accepts regular, memo, and lazy components.
+ *
  * Call `open` on the client, outside rendering. The Host renders nothing during SSR.
  *
+ * Pass the caller's `hot` and a stable `key` to retain instances and promises during HMR.
+ * Reload the page when the manager implementation changes.
+ *
  * @example
- * const modals = createModalManager({ edit: EditModal });
- * const result = await modals.open("edit", { userId: "123" });
+ * export const modals = createModalManager({ edit: EditModal }, { hot: import.meta.hot, key: "modals" });
+ * if (import.meta.hot) import.meta.hot.accept();
  */
 export function createModalManager<Registry extends ModalRegistry>(
   registry: Registry & {
     [Key in keyof Registry]: Registry[Key] extends ComponentType<infer Props> ? (Props extends ModalProps<never> ? unknown : never) : never;
   },
+  options?: ModalManagerOptions,
 ): ModalManager<Registry> {
+  const cache = options?.hot
+    ? ((options.hot.data.__deftuiModalManagers ??= new Map<string, unknown>()) as Map<string, unknown>)
+    : undefined;
+
+  const cached = (options && cache?.get(options.key)) as ModalManager<Registry> | undefined;
+
+  if (cached) {
+    cached.setRegistry(registry);
+    return cached;
+  }
+
   let definitions: ModalRegistry = registry;
   let snapshot = EMPTY;
   let nextId = 0;
@@ -200,5 +216,8 @@ export function createModalManager<Registry extends ModalRegistry>(
     publish();
   }
 
-  return { Host, open: open as ModalManager<Registry>["open"], dismissAll, setRegistry };
+  const manager: ModalManager<Registry> = { Host, open: open as ModalManager<Registry>["open"], dismissAll, setRegistry };
+  if (options) cache?.set(options.key, manager);
+
+  return manager;
 }

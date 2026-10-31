@@ -1,7 +1,5 @@
 import type { ComponentType } from "react";
 
-export type ModalResult<Value> = { status: "resolved"; value: Value } | { status: "dismissed" };
-
 /** Spread onto a controlled Dialog, AlertDialog, or Sheet root. */
 export interface ModalRootProps {
   open: boolean;
@@ -28,12 +26,19 @@ export interface ModalProps<Value = void> {
 export type ModalRegistry = Record<string, ComponentType<never>>;
 
 type ModalComponentProps<T extends ComponentType<never>> = T extends ComponentType<infer Props> ? Props : never;
+type ModalArguments<Props> = {} extends Props ? [props?: Props] : [props: Props];
 
 export type ModalInput<T extends ComponentType<never>> = Omit<ModalComponentProps<T>, "modal">;
-
 export type ModalValue<T extends ComponentType<never>> = ModalComponentProps<T> extends ModalProps<infer Value> ? Value : never;
+export type ModalResult<Value> = { status: "resolved"; value: Value } | { status: "dismissed" };
 
-type ModalArguments<Props> = {} extends Props ? [props?: Props] : [props: Props];
+export interface ModalManagerOptions {
+  /** The registration module's `import.meta.hot`. No HMR callbacks are registered. */
+  hot?: { data: Record<string, unknown> };
+
+  /** Stable across updates and unique among managers in the same module. */
+  key: string;
+}
 
 export interface ModalManager<Registry extends ModalRegistry> {
   /** Mount once inside the required contexts. Unmounting dismisses pending calls. */
