@@ -11,5 +11,6 @@ export default defineConfig({
       form: "src/react-hook-form/index.ts",
       router: "src/tanstack-router/index.ts",
     },
+    copy: ["src/styles.css"],
   },
 });

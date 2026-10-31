@@ -10,6 +10,9 @@
     "dist"
   ],
   "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     "./form": {
       "types": "./dist/form.d.mts",
@@ -18,6 +21,10 @@
     "./router": {
       "types": "./dist/router.d.mts",
       "import": "./dist/router.mjs"
+    },
+    "./styles": {
+      "style": "./dist/styles.css",
+      "import": "./dist/styles.css"
     }
   },
   "publishConfig": {
