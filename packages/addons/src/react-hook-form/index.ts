@@ -2,15 +2,20 @@ import { RHFField } from "./field";
 import { RHFForm } from "./form";
 
 export const RHF = {
-  /** Form with predefined `className="grid gap-4"` */
+  /**
+   * Thin wrapper for BaseUI's FormPrimitive.
+   *
+   * - `className` defaults to `"grid gap-4"`.
+   */
   Form: RHFForm,
 
   /**
    * `useController` wrapper with label, description, and error.
    *
-   * - Defaults `aria-invalid` to `fieldState.invalid` on a single child element.
-   * - Preserves explicit values; skips arrays and fragments.
-   * - Custom components must forward the attribute.
+   * - Injects `id`, `aria-invalid`, and `aria-describedby` into a single child element.
+   * - For arrays/fragments, spread the second callback argument onto the control.
+   * - Syncs `data-disabled` with the field's disabled state.
+   * - Custom components must forward these props.
    */
   Field: RHFField,
 };
