@@ -1,3 +1,4 @@
+import * as EmptyUI from "@/vendor/coss/empty";
 import * as AlertDialogUI from "@/vendor/shadcn/alert-dialog";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as CardUI from "@/vendor/shadcn/card";
@@ -5,7 +6,6 @@ import * as ComboboxUI from "@/vendor/shadcn/combobox";
 import * as DialogUI from "@/vendor/shadcn/dialog";
 import * as DrawerUI from "@/vendor/shadcn/drawer";
 import * as DropdownUI from "@/vendor/shadcn/dropdown-menu";
-import * as EmptyUI from "@/vendor/shadcn/empty";
 import * as FieldUI from "@/vendor/shadcn/field";
 import * as InputGroupUI from "@/vendor/shadcn/input-group";
 import * as KbdUI from "@/vendor/shadcn/kbd";

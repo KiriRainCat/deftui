@@ -11,6 +11,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
+| `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | — |
 | `@coss/form` | [coss/form.tsx](coss/form.tsx) | [Form](https://coss.com/ui/docs/components/form) | — |
 | `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | — |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
@@ -28,7 +29,6 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `direction` | [shadcn/direction.tsx](shadcn/direction.tsx) | [Direction](https://ui.shadcn.com/docs/components/base/direction) | — |
 | `drawer` | [shadcn/drawer.tsx](shadcn/drawer.tsx) | [Drawer](https://ui.shadcn.com/docs/components/base/drawer) | 额外导出 `createDrawerHandle` 及其类型 |
 | `dropdown-menu` | [shadcn/dropdown-menu.tsx](shadcn/dropdown-menu.tsx) | [Dropdown Menu](https://ui.shadcn.com/docs/components/base/dropdown-menu) | — |
-| `empty` | [shadcn/empty.tsx](shadcn/empty.tsx) | [Empty](https://ui.shadcn.com/docs/components/base/empty) | — |
 | `field` | [shadcn/field.tsx](shadcn/field.tsx) | [Field](https://ui.shadcn.com/docs/components/base/field) | — |
 | `input` | [shadcn/input.tsx](shadcn/input.tsx) | [Input](https://ui.shadcn.com/docs/components/base/input) | 参考 coss ui 处理自动填充的文字颜色，用背景色过渡抑制浏览器底色、内阴影绘制填充色 |
 | `input-group` | [shadcn/input-group.tsx](shadcn/input-group.tsx) | [Input Group](https://ui.shadcn.com/docs/components/base/input-group) | — |
