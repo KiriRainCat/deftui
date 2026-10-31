@@ -1,8 +1,6 @@
 import * as PaginationUI from "@/vendor/shadcn/pagination";
 
 export const Pagination = /* @__PURE__ */ Object.assign(PaginationUI.Pagination, {
-  Root: PaginationUI.Pagination,
-
   Content: PaginationUI.PaginationContent,
 
   Item: PaginationUI.PaginationItem,

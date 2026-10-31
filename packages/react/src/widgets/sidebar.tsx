@@ -4,7 +4,6 @@ export { useSidebar } from "@/vendor/shadcn/sidebar";
 export const Sidebar = /* @__PURE__ */ Object.assign(SidebarUI.Sidebar, {
   Provider: SidebarUI.SidebarProvider,
 
-  Root: SidebarUI.Sidebar,
   Inset: SidebarUI.SidebarInset,
   Trigger: SidebarUI.SidebarTrigger,
 

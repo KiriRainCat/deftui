@@ -42,13 +42,10 @@ export { IconSwap } from "@/vendor/tailored/icon-swap";
 // # [Skelton, Sheet] are not re-exported due to their limited use case.
 
 export const Kbd = /* @__PURE__ */ Object.assign(KbdUI.Kbd, {
-  Root: KbdUI.Kbd,
   Group: KbdUI.KbdGroup,
 });
 
 export const Tabs = /* @__PURE__ */ Object.assign(TabsUI.Tabs, {
-  Root: TabsUI.Tabs,
-
   List: TabsUI.TabsList,
   Trigger: TabsUI.TabsTrigger,
 
@@ -56,8 +53,6 @@ export const Tabs = /* @__PURE__ */ Object.assign(TabsUI.Tabs, {
 });
 
 export const Card = /* @__PURE__ */ Object.assign(CardUI.Card, {
-  Root: CardUI.Card,
-
   Header: CardUI.CardHeader,
   Content: CardUI.CardContent,
   Footer: CardUI.CardFooter,
@@ -68,16 +63,12 @@ export const Card = /* @__PURE__ */ Object.assign(CardUI.Card, {
 });
 
 export const Field = /* @__PURE__ */ Object.assign(FieldUI.Field, {
-  Root: FieldUI.Field,
-
   Label: FieldUI.FieldLabel,
   Description: FieldUI.FieldDescription,
   Error: FieldUI.FieldError,
 });
 
 export const Empty = /* @__PURE__ */ Object.assign(EmptyUI.Empty, {
-  Root: EmptyUI.Empty,
-
   Header: EmptyUI.EmptyHeader,
   Content: EmptyUI.EmptyContent,
 
@@ -87,8 +78,6 @@ export const Empty = /* @__PURE__ */ Object.assign(EmptyUI.Empty, {
 });
 
 export const Table = /* @__PURE__ */ Object.assign(TableUI.Table, {
-  Root: TableUI.Table,
-
   Header: TableUI.TableHeader,
   Body: TableUI.TableBody,
   Footer: TableUI.TableFooter,
@@ -99,13 +88,10 @@ export const Table = /* @__PURE__ */ Object.assign(TableUI.Table, {
 });
 
 export const Radio = /* @__PURE__ */ Object.assign(RadioUI.RadioGroupItem, {
-  Root: RadioUI.RadioGroupItem,
   Group: RadioUI.RadioGroup,
 });
 
 export const Select = /* @__PURE__ */ Object.assign(SelectUI.Select, {
-  Root: SelectUI.Select,
-
   Trigger: SelectUI.SelectTrigger,
   Value: SelectUI.SelectValue,
 
@@ -118,7 +104,6 @@ export const Select = /* @__PURE__ */ Object.assign(SelectUI.Select, {
 });
 
 export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
-  Root: DrawerUI.Drawer,
   Trigger: DrawerUI.DrawerTrigger,
 
   Close: DrawerUI.DrawerClose,
@@ -132,7 +117,6 @@ export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
 });
 
 export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
-  Root: DialogUI.Dialog,
   Trigger: DialogUI.DialogTrigger,
 
   Close: DialogUI.DialogClose,
@@ -148,13 +132,11 @@ export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
 export const Tooltip = /* @__PURE__ */ Object.assign(TooltipUI.Tooltip, {
   Provider: TooltipUI.TooltipProvider,
 
-  Root: TooltipUI.Tooltip,
   Trigger: TooltipUI.TooltipTrigger,
   Content: TooltipUI.TooltipContent,
 });
 
 export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
-  Root: PopoverUI.Popover,
   Trigger: PopoverUI.PopoverTrigger,
 
   Content: PopoverUI.PopoverContent,
@@ -164,7 +146,6 @@ export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
 });
 
 export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
-  Root: DropdownUI.DropdownMenu,
   Trigger: DropdownUI.DropdownMenuTrigger,
 
   Content: DropdownUI.DropdownMenuContent,
@@ -187,8 +168,6 @@ export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
 });
 
 export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
-  Root: ProgressUI.Progress,
-
   Label: ProgressUI.ProgressLabel,
   Value: ProgressUI.ProgressValue,
 
@@ -197,7 +176,6 @@ export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
 });
 
 export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDialog, {
-  Root: AlertDialogUI.AlertDialog,
   Trigger: AlertDialogUI.AlertDialogTrigger,
 
   Close: AlertDialogUI.AlertDialogCancel,
@@ -212,15 +190,11 @@ export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDial
 });
 
 export const ButtonGroup = /* @__PURE__ */ Object.assign(ButtonGroupUI.ButtonGroup, {
-  Root: ButtonGroupUI.ButtonGroup,
-
   Text: ButtonGroupUI.ButtonGroupText,
   Separator: ButtonGroupUI.ButtonGroupSeparator,
 });
 
 export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup, {
-  Root: InputGroupUI.InputGroup,
-
   Addon: InputGroupUI.InputGroupAddon,
   AddonText: InputGroupUI.InputGroupText,
 
@@ -230,8 +204,6 @@ export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup,
 });
 
 export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
-  Root: ComboboxUI.Combobox,
-
   Content: ComboboxUI.ComboboxContent,
   Empty: ComboboxUI.ComboboxEmpty,
   List: ComboboxUI.ComboboxList,

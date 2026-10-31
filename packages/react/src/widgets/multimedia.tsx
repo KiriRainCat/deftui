@@ -9,14 +9,11 @@ import * as LightboxUI from "@/vendor/tailored/lightbox";
 export type * from "@/vendor/tailored/lightbox";
 
 export const Lightbox = /* @__PURE__ */ Object.assign(LightboxUI.Lightbox, {
-  Root: LightboxUI.Lightbox,
   Trigger: LightboxUI.LightboxTrigger,
   Content: LightboxUI.LightboxContent,
 });
 
 export const Carousel = /* @__PURE__ */ Object.assign(CarouselUI.Carousel, {
-  Root: CarouselUI.Carousel,
-
   Content: CarouselUI.CarouselContent,
   Previous: CarouselUI.CarouselPrevious,
   Next: CarouselUI.CarouselNext,
