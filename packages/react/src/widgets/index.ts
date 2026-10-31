@@ -146,6 +146,8 @@ export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
 });
 
 export const Tooltip = /* @__PURE__ */ Object.assign(TooltipUI.Tooltip, {
+  Provider: TooltipUI.TooltipProvider,
+
   Root: TooltipUI.Tooltip,
   Trigger: TooltipUI.TooltipTrigger,
   Content: TooltipUI.TooltipContent,
@@ -199,6 +201,7 @@ export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDial
   Trigger: AlertDialogUI.AlertDialogTrigger,
 
   Close: AlertDialogUI.AlertDialogCancel,
+  Action: AlertDialogUI.AlertDialogAction,
   Content: AlertDialogUI.AlertDialogContent,
 
   Header: AlertDialogUI.AlertDialogHeader,
@@ -206,6 +209,13 @@ export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDial
 
   Title: AlertDialogUI.AlertDialogTitle,
   Description: AlertDialogUI.AlertDialogDescription,
+});
+
+export const ButtonGroup = /* @__PURE__ */ Object.assign(ButtonGroupUI.ButtonGroup, {
+  Root: ButtonGroupUI.ButtonGroup,
+
+  Text: ButtonGroupUI.ButtonGroupText,
+  Separator: ButtonGroupUI.ButtonGroupSeparator,
 });
 
 export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup, {
@@ -216,6 +226,7 @@ export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup,
 
   Input: InputGroupUI.InputGroupInput,
   Textarea: InputGroupUI.InputGroupTextarea,
+  Button: InputGroupUI.InputGroupButton,
 });
 
 export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
