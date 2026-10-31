@@ -29,6 +29,13 @@ import { Skeleton } from "@/vendor/shadcn/skeleton";
 import { Spinner } from "@/vendor/shadcn/spinner";
 
 const LIGHTBOX_STYLES = String.raw`
+  /* Keep child modals' transparent input blockers above the viewer. */
+  :where([data-slot="lightbox-portal"] [data-base-ui-portal],
+    [data-slot="lightbox-portal"] ~ [data-base-ui-portal])
+    > :where([data-base-ui-inert][role="presentation"]) {
+    z-index: 50;
+  }
+
   :where([data-slot="lightbox-viewport"]) {
     overscroll-behavior: contain;
   }
@@ -1612,7 +1619,7 @@ function LightboxBackdrop({
       data-slot="lightbox-backdrop"
       data-overlay={overlay}
       className={cn(
-        "fixed inset-0 z-60 min-h-dvh opacity-[var(--lightbox-backdrop-opacity)] transition-[opacity,backdrop-filter] duration-200",
+        "fixed inset-0 z-50 min-h-dvh opacity-[var(--lightbox-backdrop-opacity)] transition-[opacity,backdrop-filter] duration-200",
         overlay === "blur" && "bg-black/80 backdrop-blur-md",
         overlay === "brightness" && "bg-black/90",
         "data-starting-style:opacity-0 data-ending-style:opacity-0 data-ending-style:pointer-events-none motion-reduce:transition-opacity",
@@ -1632,7 +1639,7 @@ function LightboxViewport({
     <DialogPrimitive.Viewport
       data-slot="lightbox-viewport"
       className={cn(
-        "fixed inset-0 z-70 flex min-h-dvh items-stretch overflow-hidden overscroll-contain data-ending-style:pointer-events-none",
+        "fixed inset-0 z-50 flex min-h-dvh items-stretch overflow-hidden overscroll-contain data-ending-style:pointer-events-none",
         className
       )}
       {...props}
@@ -1757,10 +1764,8 @@ function LightboxContent({
   }
 
   return (
-    <DialogPrimitive.Portal
-      data-slot="lightbox-portal"
-      container={typeof document === "undefined" ? undefined : document.body}
-    >
+    // Keep the default portal nesting and shared z-index so child overlays stay on top.
+    <DialogPrimitive.Portal data-slot="lightbox-portal">
       <LightboxBackdrop forceRender />
       <LightboxViewport
         dir={direction}
@@ -3459,12 +3464,11 @@ function LightboxMore({ className, ...props }: LightboxActionButtonProps) {
       >
         <EllipsisIcon aria-hidden="true" />
       </DropdownMenuTrigger>
-      {/* The menu positioner must sit above the lightbox viewport. */}
       <MenuPrimitive.Portal>
         <MenuPrimitive.Positioner
           align="end"
           sideOffset={4}
-          className="isolate z-80 outline-none"
+          className="isolate z-50 outline-none"
         >
           <MenuPrimitive.Popup
             data-slot="dropdown-menu-content"

@@ -61,5 +61,5 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
-| `https://ui.iandefined.com/r/lightbox.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Lightbox](https://ui.iandefined.com/docs/components/lightbox/) | 复用本地基础组件，适配尺寸和菜单层级；补充媒体及缩略图加载失败反馈 |
-| `https://ui.iandefined.com/r/scroll-area.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Scroll Area](https://ui.iandefined.com/docs/components/scroll-area/) | 作为 Lightbox 的私有依赖内联，不单独导出 |
+| `https://ui.iandefined.com/r/lightbox.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Lightbox](https://ui.iandefined.com/docs/components/lightbox/) | 适配本地组件和尺寸；修正嵌套弹层层级与点击隔离；补充加载失败反馈 |
+| `https://ui.iandefined.com/r/scroll-area.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Scroll Area](https://ui.iandefined.com/docs/components/scroll-area/) | 作为 Lightbox 的私有依赖内联 |
