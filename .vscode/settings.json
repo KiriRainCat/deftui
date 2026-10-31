@@ -4,7 +4,8 @@
 
   // Nested files
   "explorer.fileNesting.patterns": {
-    "vercel.json": "edgeone.json"
+    "vercel.json": "edgeone.json",
+    "bump.config.ts": "cliff.toml"
   },
 
   // Hidden files

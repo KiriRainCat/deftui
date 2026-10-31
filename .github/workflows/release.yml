@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-        with: { submodules: recursive }
+        with: { fetch-depth: 0, submodules: recursive }
 
       - uses: voidzero-dev/setup-vp@v1.22.0
         with: { cache: true, run-install: true }
@@ -26,11 +26,16 @@ jobs:
       - run: vp run -r build
       - run: vp check
 
+      - name: Generate release notes
+        uses: orhun/git-cliff-action@v4
+        with: { args: --current --strip header }
+        env: { OUTPUT: "${{ runner.temp }}/release-notes.md" }
+
       - run: npm publish
         working-directory: packages/react
 
       - run: npm publish
         working-directory: packages/addons
 
-      - run: gh release create "$GITHUB_REF_NAME" --generate-notes
+      - run: gh release create "$GITHUB_REF_NAME" --notes-file "$RUNNER_TEMP/release-notes.md"
         env: { GH_TOKEN: "${{ github.token }}" }
