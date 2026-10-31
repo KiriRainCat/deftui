@@ -25,8 +25,6 @@ export * from "./pagination";
 export * from "./multimedia";
 export * from "./datetime-picker";
 
-export { Form } from "@/vendor/coss/form";
-
 export { Label } from "@/vendor/shadcn/label";
 export { Input } from "@/vendor/shadcn/input";
 export { Badge } from "@/vendor/shadcn/badge";
@@ -36,6 +34,9 @@ export { Spinner } from "@/vendor/shadcn/spinner";
 export { Textarea } from "@/vendor/shadcn/textarea";
 export { Separator } from "@/vendor/shadcn/separator";
 export { ScrollArea } from "@/vendor/coss/scroll-area";
+
+export { Form } from "@/vendor/coss/form";
+export { IconSwap } from "@/vendor/tailored/icon-swap";
 
 // # [Skelton, Sheet] are not re-exported due to their limited use case.
 

@@ -61,5 +61,6 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
+| `https://ui.iandefined.com/r/icon-swap.json` | [tailored/icon-swap.tsx](tailored/icon-swap.tsx) | [Icon Swap](https://ui.iandefined.com/docs/utilities/icon-swap/) | 进出场动画减弱模糊为 2px，缩短为 0.2s 时长 |
 | `https://ui.iandefined.com/r/lightbox.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Lightbox](https://ui.iandefined.com/docs/components/lightbox/) | 适配本地组件和尺寸；修正嵌套弹层层级与点击隔离；补充加载失败反馈 |
 | `https://ui.iandefined.com/r/scroll-area.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Scroll Area](https://ui.iandefined.com/docs/components/scroll-area/) | 作为 Lightbox 的私有依赖内联 |
