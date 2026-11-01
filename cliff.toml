@@ -1,3 +1,7 @@
+[remote.github]
+repo = "deftui"
+owner = "KiriRainCat"
+
 [changelog]
 trim = true
 body = """
