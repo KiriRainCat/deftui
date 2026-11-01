@@ -1,4 +1,5 @@
 import * as EmptyUI from "@/vendor/coss/empty";
+import * as FileUploadUI from "@/vendor/diceui/file-upload";
 import * as AlertDialogUI from "@/vendor/shadcn/alert-dialog";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as CardUI from "@/vendor/shadcn/card";
@@ -167,6 +168,25 @@ export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
   CheckboxItem: DropdownUI.DropdownMenuCheckboxItem,
 });
 
+export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
+  Content: ComboboxUI.ComboboxContent,
+  Empty: ComboboxUI.ComboboxEmpty,
+  List: ComboboxUI.ComboboxList,
+
+  Input: ComboboxUI.ComboboxInput,
+  ChipsInput: ComboboxUI.ComboboxChipsInput,
+
+  Chips: ComboboxUI.ComboboxChips,
+  Value: ComboboxUI.ComboboxValue,
+  Chip: ComboboxUI.ComboboxChip,
+
+  Group: ComboboxUI.ComboboxGroup,
+  GroupLabel: ComboboxUI.ComboboxLabel,
+  GroupCollection: ComboboxUI.ComboboxCollection,
+
+  Item: ComboboxUI.ComboboxItem,
+});
+
 export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
   Label: ProgressUI.ProgressLabel,
   Value: ProgressUI.ProgressValue,
@@ -203,21 +223,16 @@ export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup,
   Button: InputGroupUI.InputGroupButton,
 });
 
-export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
-  Content: ComboboxUI.ComboboxContent,
-  Empty: ComboboxUI.ComboboxEmpty,
-  List: ComboboxUI.ComboboxList,
+export const FileUpload = /* @__PURE__ */ Object.assign(FileUploadUI.FileUpload, {
+  Dropzone: FileUploadUI.FileUploadDropzone,
+  Trigger: FileUploadUI.FileUploadTrigger,
+  List: FileUploadUI.FileUploadList,
 
-  Input: ComboboxUI.ComboboxInput,
-  ChipsInput: ComboboxUI.ComboboxChipsInput,
+  Item: FileUploadUI.FileUploadItem,
+  ItemPreview: FileUploadUI.FileUploadItemPreview,
+  ItemMetadata: FileUploadUI.FileUploadItemMetadata,
+  ItemProgress: FileUploadUI.FileUploadItemProgress,
+  ItemDelete: FileUploadUI.FileUploadItemDelete,
 
-  Chips: ComboboxUI.ComboboxChips,
-  Value: ComboboxUI.ComboboxValue,
-  Chip: ComboboxUI.ComboboxChip,
-
-  Group: ComboboxUI.ComboboxGroup,
-  GroupLabel: ComboboxUI.ComboboxLabel,
-  GroupCollection: ComboboxUI.ComboboxCollection,
-
-  Item: ComboboxUI.ComboboxItem,
+  Clear: FileUploadUI.FileUploadClear,
 });
