@@ -1,5 +1,6 @@
 import * as EmptyUI from "@/vendor/coss/empty";
 import * as AlertDialogUI from "@/vendor/shadcn/alert-dialog";
+import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as CalendarUI from "@/vendor/shadcn/calendar";
 import * as CardUI from "@/vendor/shadcn/card";
@@ -22,10 +23,9 @@ export * from "./utils";
 
 export * from "./toast";
 export * from "./sidebar";
-export * from "./breadcrumb";
-export * from "./pagination";
+export * from "./datetime";
 export * from "./multimedia";
-export * from "./datetime-picker";
+export * from "./pagination";
 
 export { Label } from "@/vendor/shadcn/label";
 export { Input } from "@/vendor/shadcn/input";
@@ -197,6 +197,17 @@ export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
 
 export const Calendar = /* @__PURE__ */ Object.assign(CalendarUI.Calendar, {
   DayButton: CalendarUI.CalendarDayButton,
+});
+
+export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb, {
+  List: BreadcrumbUI.BreadcrumbList,
+
+  Item: BreadcrumbUI.BreadcrumbItem,
+  Separator: BreadcrumbUI.BreadcrumbSeparator,
+
+  Link: BreadcrumbUI.BreadcrumbLink,
+  Ellipsis: BreadcrumbUI.BreadcrumbEllipsis,
+  Page: BreadcrumbUI.BreadcrumbPage,
 });
 
 export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDialog, {
