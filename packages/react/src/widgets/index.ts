@@ -2,6 +2,7 @@ import * as EmptyUI from "@/vendor/coss/empty";
 import * as FileUploadUI from "@/vendor/diceui/file-upload";
 import * as AlertDialogUI from "@/vendor/shadcn/alert-dialog";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
+import * as CalendarUI from "@/vendor/shadcn/calendar";
 import * as CardUI from "@/vendor/shadcn/card";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
 import * as DialogUI from "@/vendor/shadcn/dialog";
@@ -33,14 +34,13 @@ export { Badge } from "@/vendor/shadcn/badge";
 export { Button } from "@/vendor/shadcn/button";
 export { Switch } from "@/vendor/shadcn/switch";
 export { Spinner } from "@/vendor/shadcn/spinner";
+export { Skeleton } from "@/vendor/shadcn/skeleton";
 export { Textarea } from "@/vendor/shadcn/textarea";
 export { Separator } from "@/vendor/shadcn/separator";
 export { ScrollArea } from "@/vendor/coss/scroll-area";
 
 export { Form } from "@/vendor/coss/form";
 export { IconSwap } from "@/vendor/tailored/icon-swap";
-
-// # [Skelton, Sheet] are not re-exported due to their limited use case.
 
 export const Kbd = /* @__PURE__ */ Object.assign(KbdUI.Kbd, {
   Group: KbdUI.KbdGroup,
@@ -193,6 +193,10 @@ export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
 
   Track: ProgressUI.ProgressTrack,
   Indicator: ProgressUI.ProgressIndicator,
+});
+
+export const Calendar = /* @__PURE__ */ Object.assign(CalendarUI.Calendar, {
+  DayButton: CalendarUI.CalendarDayButton,
 });
 
 export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDialog, {
