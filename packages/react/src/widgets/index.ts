@@ -24,6 +24,7 @@ export * from "./utils";
 export * from "./toast";
 export * from "./sidebar";
 export * from "./datetime";
+export * from "./dropzone";
 export * from "./multimedia";
 export * from "./pagination";
 
