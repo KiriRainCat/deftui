@@ -35,6 +35,7 @@ export { Button } from "@/vendor/shadcn/button";
 export { Switch } from "@/vendor/shadcn/switch";
 export { Spinner } from "@/vendor/shadcn/spinner";
 export { Skeleton } from "@/vendor/shadcn/skeleton";
+export { Checkbox } from "@/vendor/shadcn/checkbox";
 export { Textarea } from "@/vendor/shadcn/textarea";
 export { Separator } from "@/vendor/shadcn/separator";
 export { ScrollArea } from "@/vendor/coss/scroll-area";
