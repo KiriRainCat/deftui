@@ -1,5 +1,4 @@
 import * as EmptyUI from "@/vendor/coss/empty";
-import * as FileUploadUI from "@/vendor/diceui/file-upload";
 import * as AlertDialogUI from "@/vendor/shadcn/alert-dialog";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as CalendarUI from "@/vendor/shadcn/calendar";
@@ -226,18 +225,4 @@ export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup,
   Input: InputGroupUI.InputGroupInput,
   Textarea: InputGroupUI.InputGroupTextarea,
   Button: InputGroupUI.InputGroupButton,
-});
-
-export const FileUpload = /* @__PURE__ */ Object.assign(FileUploadUI.FileUpload, {
-  Dropzone: FileUploadUI.FileUploadDropzone,
-  Trigger: FileUploadUI.FileUploadTrigger,
-  List: FileUploadUI.FileUploadList,
-
-  Item: FileUploadUI.FileUploadItem,
-  ItemPreview: FileUploadUI.FileUploadItemPreview,
-  ItemMetadata: FileUploadUI.FileUploadItemMetadata,
-  ItemProgress: FileUploadUI.FileUploadItemProgress,
-  ItemDelete: FileUploadUI.FileUploadItemDelete,
-
-  Clear: FileUploadUI.FileUploadClear,
 });
