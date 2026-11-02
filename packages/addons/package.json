@@ -14,13 +14,13 @@
     "**/*.css"
   ],
   "exports": {
-    "./modal": {
-      "types": "./dist/modal.d.mts",
-      "import": "./dist/modal.mjs"
-    },
     "./form": {
       "types": "./dist/form.d.mts",
       "import": "./dist/form.mjs"
+    },
+    "./modal": {
+      "types": "./dist/modal.d.mts",
+      "import": "./dist/modal.mjs"
     },
     "./router": {
       "types": "./dist/router.d.mts",
@@ -48,9 +48,9 @@
   },
   "peerDependencies": {
     "@deftui/react": "^0.1.2",
-    "@tanstack/react-router": "^1",
-    "react": "^19",
-    "react-hook-form": "^7"
+    "@tanstack/react-router": "^1.170.0",
+    "react": "^19.0.0",
+    "react-hook-form": "^7.91.0"
   },
   "peerDependenciesMeta": {
     "@tanstack/react-router": {
