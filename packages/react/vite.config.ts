@@ -5,8 +5,14 @@ export default defineConfig({
     dts: true,
     hash: false,
     unbundle: true,
-    outputOptions: { preserveModules: true },
-    inputOptions: { checks: { moduleLevelDirective: false } },
-    copy: [{ from: ["src/*.css", "!src/vendor.css"] }, { from: "src/vendor/README.md", flatten: false }],
+
+    copy: [
+      { from: ["src/*.css", "!src/vendor.css"] }, // oxfmt-ignore
+      { from: "src/vendor/README.md", flatten: false },
+    ],
+
+    inputOptions: {
+      checks: { moduleLevelDirective: false },
+    },
   },
 });
