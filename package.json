@@ -7,6 +7,7 @@
   "type": "module",
   "scripts": {
     "fix": "vp check --fix",
+    "build": "vp run -r build",
     "prepare": "vp config --no-hooks --no-agent",
     "release": "bumpp"
   },
