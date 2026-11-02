@@ -5,13 +5,17 @@ export default defineConfig({
     dts: true,
     hash: false,
     unbundle: true,
-    outputOptions: { preserveModules: true },
-    inputOptions: { checks: { moduleLevelDirective: false } },
+
     entry: {
-      modal: "src/modal-manager/index.ts",
       form: "src/react-hook-form/index.ts",
+      modal: "src/modal-manager/index.ts",
       router: "src/tanstack-router/index.ts",
     },
+
     copy: ["src/styles.css"],
+
+    inputOptions: {
+      checks: { moduleLevelDirective: false },
+    },
   },
 });

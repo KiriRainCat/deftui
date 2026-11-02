@@ -5,10 +5,6 @@ import { Field } from "@deftui/react";
 import { cloneElement, Fragment, isValidElement, useId } from "react";
 import { useController } from "react-hook-form";
 
-type FieldStateKeys = "name" | "disabled" | "invalid" | "dirty" | "touched";
-type FieldValidKeys = "validate" | "validationMode" | "validationDebounceTime";
-type FieldRootProps = Omit<React.ComponentProps<typeof Field>, FieldStateKeys | FieldValidKeys | "children">;
-
 interface ControlProps {
   "id": string;
   "aria-invalid": boolean;
@@ -20,16 +16,27 @@ interface RHFFieldProps<
   Name extends FieldPath<Values> = FieldPath<Values>,
   Output = Values,
 > extends UseControllerProps<Values, Name, Output> {
+  /** Label associated with the control's ID. */
   label?: React.ReactNode;
-  description?: React.ReactNode;
-  fieldProps?: FieldRootProps;
 
-  /** A single non-fragment element receives control props automatically; spread them manually for nested controls. */
+  /** Supporting text referenced by the control's aria-describedby. */
+  description?: React.ReactNode;
+
+  /**
+   * Injects id, aria-invalid, and aria-describedby into a single non-Fragment element returned by children.
+   *
+   * Set to false for wrapper elements or when binding `controlProps` to an inner control manually.
+   *
+   * @default true
+   */
+  injectControlProps?: boolean;
+
+  /** Callback with `useController` states and `controllerProps` for rendering JSX. */
   children: (state: UseControllerReturn<Values, Name>, controlProps: ControlProps) => React.ReactNode;
 }
 
 export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Output = T>(props: RHFFieldProps<T, Name, Output>) {
-  const { label, description, fieldProps, children, ...controllerProps } = props;
+  const { label, description, injectControlProps = true, children, ...controllerProps } = props;
 
   const id = useId();
   const controller = useController(controllerProps);
@@ -42,14 +49,14 @@ export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Outpu
   };
 
   const child = children(controller, controlProps);
-  const control = isValidElement<React.HTMLAttributes<HTMLElement>>(child) && child.type !== Fragment ? child : null;
+  const control = injectControlProps && isValidElement<React.HTMLAttributes<HTMLElement>>(child) && child.type !== Fragment ? child : null;
   const controlId = control?.props.id ?? id;
 
   const descriptionIds = [control?.props["aria-describedby"], controlProps["aria-describedby"]].join(" ").split(/\s+/).filter(Boolean);
   const describedBy = [...new Set(descriptionIds)].join(" ") || undefined;
 
   return (
-    <Field {...fieldProps} data-invalid={controller.fieldState.invalid} data-disabled={controller.field.disabled}>
+    <Field data-invalid={controller.fieldState.invalid} data-disabled={controller.field.disabled}>
       {label != null && <Field.Label htmlFor={controlId}>{label}</Field.Label>}
 
       {control
