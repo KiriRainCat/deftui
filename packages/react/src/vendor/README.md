@@ -54,14 +54,14 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 
 ## Tailored
 
-`tailored/` 存放基于上游、需要较大结构或行为调整的单体组件。仅需导入路径、图标或少量样式适配的组件，仍放在对应的来源目录。
+`tailored/` 存放：仅少量引入的上游组件 或 需要较大调整的单体组件
 
 - 按本地需求维护，对比后选择性吸收上游修复，避免直接覆盖本地实现。
 - 优先复用已有基础组件；仅供该组件使用的依赖可内联，分别记录其来源。
-- 下表记录主组件及内联依赖的 registry ID、文档和主要修改；对外的组合封装放在 `widgets/`。
 
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
 | `https://ui.iandefined.com/r/icon-swap.json` | [tailored/icon-swap.tsx](tailored/icon-swap.tsx) | [Icon Swap](https://ui.iandefined.com/docs/utilities/icon-swap/) | 进出场动画减弱模糊为 2px，缩短为 0.2s 时长 |
 | `https://ui.iandefined.com/r/lightbox.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Lightbox](https://ui.iandefined.com/docs/components/lightbox/) | 适配本地组件和尺寸；修正嵌套弹层层级与点击隔离；补充加载失败反馈 |
 | `https://ui.iandefined.com/r/scroll-area.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Scroll Area](https://ui.iandefined.com/docs/components/scroll-area/) | 作为 Lightbox 的私有依赖内联 |
+| `Tinkerers-Labs/mischief-ui/file-tree` | [tailored/json-viewer.tsx](tailored/json-viewer.tsx) | [JSON Viewer](https://ui.tinkererslabs.com/docs/components/json-viewer/) | — |

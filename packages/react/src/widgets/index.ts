@@ -42,6 +42,7 @@ export { ScrollArea } from "@/vendor/coss/scroll-area";
 
 export { Form } from "@/vendor/coss/form";
 export { IconSwap } from "@/vendor/tailored/icon-swap";
+export { JsonViewer } from "@/vendor/tailored/json-viewer";
 
 export const Kbd = /* @__PURE__ */ Object.assign(KbdUI.Kbd, {
   Group: KbdUI.KbdGroup,
