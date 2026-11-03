@@ -28,6 +28,7 @@ export * from "./dropzone";
 export * from "./multimedia";
 export * from "./pagination";
 
+export { Form } from "@/vendor/coss/form";
 export { Label } from "@/vendor/shadcn/label";
 export { Input } from "@/vendor/shadcn/input";
 export { Badge } from "@/vendor/shadcn/badge";
@@ -40,9 +41,9 @@ export { Textarea } from "@/vendor/shadcn/textarea";
 export { Separator } from "@/vendor/shadcn/separator";
 export { ScrollArea } from "@/vendor/coss/scroll-area";
 
-export { Form } from "@/vendor/coss/form";
 export { IconSwap } from "@/vendor/tailored/icon-swap";
 export { JsonViewer } from "@/vendor/tailored/json-viewer";
+export { FileTree, type FileTreeNode } from "@/vendor/tailored/file-tree";
 
 export const Kbd = /* @__PURE__ */ Object.assign(KbdUI.Kbd, {
   Group: KbdUI.KbdGroup,
