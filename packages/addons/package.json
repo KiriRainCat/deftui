@@ -14,6 +14,10 @@
     "**/*.css"
   ],
   "exports": {
+    "./map": {
+      "types": "./dist/map.d.mts",
+      "import": "./dist/map.mjs"
+    },
     "./form": {
       "types": "./dist/form.d.mts",
       "import": "./dist/form.mjs"
@@ -42,14 +46,19 @@
   "devDependencies": {
     "@deftui/react": "^0.1.3",
     "@tanstack/react-router": "^1.170.46",
+    "@types/geojson": "^7946.0.16",
     "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "lucide-react": "^1.66.0",
     "react-hook-form": "^7.91.0",
     "vite-plus": "catalog:"
   },
   "peerDependencies": {
     "@deftui/react": "^0.1.3",
     "@tanstack/react-router": "^1.170.0",
+    "maplibre-gl": "^6.16.0",
     "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-hook-form": "^7.91.0"
   },
   "peerDependenciesMeta": {
