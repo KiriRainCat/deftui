@@ -2,7 +2,9 @@
 
 A React component library built on Base UI, shadcn/ui, and their open-source registry ecosystem, offering easy-to-use compound component APIs.
 
-[Upstream documentation](./dist/vendor/README.md): To look up component usage, check the local exports first, then consult the upstream if you really needs them.
+[Upstream documentation](./dist/vendor/README.md): To look up component usage, check the local exports first, then consult the upstream.
+
+> Most basic components expose exactly the same APIs as their shadcn/ui counterparts backed by Base UI.
 
 ## Installation
 
