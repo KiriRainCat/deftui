@@ -39,7 +39,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `popover` | [shadcn/popover.tsx](shadcn/popover.tsx) | [Popover](https://ui.shadcn.com/docs/components/base/popover) | — |
 | `progress` | [shadcn/progress.tsx](shadcn/progress.tsx) | [Progress](https://ui.shadcn.com/docs/components/base/progress) | — |
 | `radio-group` | [shadcn/radio-group.tsx](shadcn/radio-group.tsx) | [Radio Group](https://ui.shadcn.com/docs/components/base/radio-group) | — |
-| `select` | [shadcn/select.tsx](shadcn/select.tsx) | [Select](https://ui.shadcn.com/docs/components/base/select) | `alignItemWithTrigger` 改为默认 `false`；未显式指定 `SelectGroup` 则自动包裹 |
+| `select` | [shadcn/select.tsx](shadcn/select.tsx) | [Select](https://ui.shadcn.com/docs/components/base/select) | `alignItemWithTrigger` 改为默认 `false`；未显式指定 `SelectGroup` 则自动包裹；将选中标记移至左侧 |
 | `separator` | [shadcn/separator.tsx](shadcn/separator.tsx) | [Separator](https://ui.shadcn.com/docs/components/base/separator) | — |
 | `sheet` | [shadcn/sheet.tsx](shadcn/sheet.tsx) | [Sheet](https://ui.shadcn.com/docs/components/base/sheet) | — |
 | `sidebar` | [shadcn/sidebar.tsx](shadcn/sidebar.tsx) | [Sidebar](https://ui.shadcn.com/docs/components/base/sidebar) | `useIsMobile` 改为从 `@/vendor/coss/hooks/use-media-query` 导入 |
