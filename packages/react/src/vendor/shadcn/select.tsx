@@ -55,6 +55,25 @@ function SelectTrigger({
   )
 }
 
+function containsSelectGroup(children: React.ReactNode): boolean {
+  return React.Children.toArray(children).some((child) => {
+    if (!React.isValidElement(child)) {
+      return false
+    }
+
+    if (child.type === SelectGroup) {
+      return true
+    }
+
+    return (
+      child.type === React.Fragment &&
+      containsSelectGroup(
+        (child.props as { children?: React.ReactNode }).children
+      )
+    )
+  })
+}
+
 function SelectContent({
   className,
   children,
@@ -69,6 +88,12 @@ function SelectContent({
     SelectPrimitive.Positioner.Props,
     "align" | "alignOffset" | "side" | "sideOffset" | "alignItemWithTrigger"
   >) {
+  const groupedChildren = containsSelectGroup(children) ? (
+    children
+  ) : (
+    <SelectGroup>{children}</SelectGroup>
+  )
+
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Positioner
@@ -86,7 +111,7 @@ function SelectContent({
           {...props}
         >
           <SelectScrollUpButton />
-          <SelectPrimitive.List>{children}</SelectPrimitive.List>
+          <SelectPrimitive.List>{groupedChildren}</SelectPrimitive.List>
           <SelectScrollDownButton />
         </SelectPrimitive.Popup>
       </SelectPrimitive.Positioner>
