@@ -4,7 +4,36 @@ import { cn } from "cn"
 import { Button } from "@/vendor/shadcn/button"
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
 
-function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
+function containsPaginationContent(children: React.ReactNode): boolean {
+  return React.Children.toArray(children).some((child) => {
+    if (!React.isValidElement(child)) {
+      return false
+    }
+
+    if (child.type === PaginationContent) {
+      return true
+    }
+
+    return (
+      child.type === React.Fragment &&
+      containsPaginationContent(
+        (child.props as { children?: React.ReactNode }).children
+      )
+    )
+  })
+}
+
+function Pagination({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"nav">) {
+  const content = containsPaginationContent(children) ? (
+    children
+  ) : (
+    <PaginationContent>{children}</PaginationContent>
+  )
+
   return (
     <nav
       role="navigation"
@@ -12,7 +41,9 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
       data-slot="pagination"
       className={cn("mx-auto flex w-full justify-center", className)}
       {...props}
-    />
+    >
+      {content}
+    </nav>
   )
 }
 

@@ -35,7 +35,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `input-group` | [shadcn/input-group.tsx](shadcn/input-group.tsx) | [Input Group](https://ui.shadcn.com/docs/components/base/input-group) | — |
 | `kbd` | [shadcn/kbd.tsx](shadcn/kbd.tsx) | [Kbd](https://ui.shadcn.com/docs/components/base/kbd) | — |
 | `label` | [shadcn/label.tsx](shadcn/label.tsx) | [Label](https://ui.shadcn.com/docs/components/base/label) | — |
-| `pagination` | [shadcn/pagination.tsx](shadcn/pagination.tsx) | [Pagination](https://ui.shadcn.com/docs/components/base/pagination) | — |
+| `pagination` | [shadcn/pagination.tsx](shadcn/pagination.tsx) | [Pagination](https://ui.shadcn.com/docs/components/base/pagination) | 使用 `Pagination` 时未显式指定 `PaginationContent` 则自动包裹 |
 | `popover` | [shadcn/popover.tsx](shadcn/popover.tsx) | [Popover](https://ui.shadcn.com/docs/components/base/popover) | — |
 | `progress` | [shadcn/progress.tsx](shadcn/progress.tsx) | [Progress](https://ui.shadcn.com/docs/components/base/progress) | — |
 | `radio-group` | [shadcn/radio-group.tsx](shadcn/radio-group.tsx) | [Radio Group](https://ui.shadcn.com/docs/components/base/radio-group) | — |
