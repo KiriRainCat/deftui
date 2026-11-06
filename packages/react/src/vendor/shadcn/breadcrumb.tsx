@@ -4,14 +4,45 @@ import { useRender } from "@base-ui/react/use-render"
 import { cn } from "cn"
 import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
 
-function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
+function containsBreadcrumbList(children: React.ReactNode): boolean {
+  return React.Children.toArray(children).some((child) => {
+    if (!React.isValidElement(child)) {
+      return false
+    }
+
+    if (child.type === BreadcrumbList) {
+      return true
+    }
+
+    return (
+      child.type === React.Fragment &&
+      containsBreadcrumbList(
+        (child.props as { children?: React.ReactNode }).children
+      )
+    )
+  })
+}
+
+function Breadcrumb({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"nav">) {
+  const list = containsBreadcrumbList(children) ? (
+    children
+  ) : (
+    <BreadcrumbList>{children}</BreadcrumbList>
+  )
+
   return (
     <nav
       aria-label="breadcrumb"
       data-slot="breadcrumb"
       className={cn(className)}
       {...props}
-    />
+    >
+      {list}
+    </nav>
   )
 }
 
