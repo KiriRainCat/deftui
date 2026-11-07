@@ -188,6 +188,7 @@ export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
   GroupCollection: ComboboxUI.ComboboxCollection,
 
   Item: ComboboxUI.ComboboxItem,
+  Separator: ComboboxUI.ComboboxSeparator,
 });
 
 export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
