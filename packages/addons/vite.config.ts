@@ -8,7 +8,7 @@ export default defineConfig({
 
     entry: {
       form: "src/react-hook-form/index.ts",
-      modal: "src/modal-manager/index.ts",
+      modal: "src/modal-registry/index.ts",
       router: "src/tanstack-router/index.ts",
     },
 

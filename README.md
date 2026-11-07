@@ -49,7 +49,7 @@ bun add @deftui/addons
 | 入口                    | 导出                    | 额外依赖                 |
 | ----------------------- | ----------------------- | ------------------------ |
 | `@deftui/addons/form`   | `RHF.Form`、`RHF.Field` | `react-hook-form`        |
-| `@deftui/addons/modal`  | `createModalManager`    | —                        |
+| `@deftui/addons/modal`  | `createModalRegistry`   | —                        |
 | `@deftui/addons/router` | `collectNavigation`     | `@tanstack/react-router` |
 
 使用扩展组件时，在全局 CSS 中追加 `@import "@deftui/addons/styles";`。
