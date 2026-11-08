@@ -1,5 +1,6 @@
 # AGENTS.md
 
+- Use existing components as the style baseline; adapt references instead of copying them wholesale.
 - Keep dependencies, public exports, and related documentation in sync when adding or removing components.
 - Do not bulk-format upstream files. Compare with upstream when updating and preserve necessary local changes.
 - Use `bunx shadcn view <ID>` to inspect upstream code and dependencies. Apply relevant changes manually instead of overwriting local adaptations.
