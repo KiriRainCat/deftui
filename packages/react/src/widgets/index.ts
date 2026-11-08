@@ -1,12 +1,12 @@
+import * as AlertDialogUI from "@/vendor/coss/alert-dialog";
+import * as DialogUI from "@/vendor/coss/dialog";
+import * as DrawerUI from "@/vendor/coss/drawer";
 import * as EmptyUI from "@/vendor/coss/empty";
-import * as AlertDialogUI from "@/vendor/shadcn/alert-dialog";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as CalendarUI from "@/vendor/shadcn/calendar";
 import * as CardUI from "@/vendor/shadcn/card";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
-import * as DialogUI from "@/vendor/shadcn/dialog";
-import * as DrawerUI from "@/vendor/shadcn/drawer";
 import * as DropdownUI from "@/vendor/shadcn/dropdown-menu";
 import * as FieldUI from "@/vendor/shadcn/field";
 import * as InputGroupUI from "@/vendor/shadcn/input-group";
@@ -109,9 +109,10 @@ export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
   Trigger: DrawerUI.DrawerTrigger,
 
   Close: DrawerUI.DrawerClose,
-  Content: DrawerUI.DrawerContent,
+  Popup: DrawerUI.DrawerPopup,
 
   Header: DrawerUI.DrawerHeader,
+  Panel: DrawerUI.DrawerPanel,
   Footer: DrawerUI.DrawerFooter,
 
   Title: DrawerUI.DrawerTitle,
@@ -122,9 +123,10 @@ export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
   Trigger: DialogUI.DialogTrigger,
 
   Close: DialogUI.DialogClose,
-  Content: DialogUI.DialogContent,
+  Popup: DialogUI.DialogPopup,
 
   Header: DialogUI.DialogHeader,
+  Panel: DialogUI.DialogPanel,
   Footer: DialogUI.DialogFooter,
 
   Title: DialogUI.DialogTitle,
@@ -215,9 +217,8 @@ export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb,
 export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDialog, {
   Trigger: AlertDialogUI.AlertDialogTrigger,
 
-  Close: AlertDialogUI.AlertDialogCancel,
-  Action: AlertDialogUI.AlertDialogAction,
-  Content: AlertDialogUI.AlertDialogContent,
+  Close: AlertDialogUI.AlertDialogClose,
+  Popup: AlertDialogUI.AlertDialogPopup,
 
   Header: AlertDialogUI.AlertDialogHeader,
   Footer: AlertDialogUI.AlertDialogFooter,

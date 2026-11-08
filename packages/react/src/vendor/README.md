@@ -11,12 +11,14 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
+| `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | 替换 `font-bold text-xl` 为 `font-semibold text-lg` |
+| `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | 替换 `font-bold text-xl` 为 `font-semibold text-lg` |
+| `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | 替换 `font-bold text-xl` 为 `font-semibold text-lg` |
 | `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | — |
 | `@coss/form` | [coss/form.tsx](coss/form.tsx) | [Form](https://coss.com/ui/docs/components/form) | — |
 | `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | — |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
 | `@coss/use-media-query` | [coss/hooks/use-media-query.ts](coss/hooks/use-media-query.ts) | [useMediaQuery](https://coss.com/ui/docs/hooks/use-media-query) | 断点：`md` 设为 768px，与 Tailwind 默认值一致 |
-| `alert-dialog` | [shadcn/alert-dialog.tsx](shadcn/alert-dialog.tsx) | [Alert Dialog](https://ui.shadcn.com/docs/components/base/alert-dialog) | 额外导出 `createAlertDialogHandle` 及其类型 |
 | `badge` | [shadcn/badge.tsx](shadcn/badge.tsx) | [Badge](https://ui.shadcn.com/docs/components/base/badge) | 提供 `info`、`success`、`warning` 语义变体 |
 | `breadcrumb` | [shadcn/breadcrumb.tsx](shadcn/breadcrumb.tsx) | [Breadcrumb](https://ui.shadcn.com/docs/components/base/breadcrumb) | 未显式指定 `BreadcrumbList` 则自动包裹 |
 | `button` | [shadcn/button.tsx](shadcn/button.tsx) | [Button](https://ui.shadcn.com/docs/components/base/button) | `pill` 提供全圆角；`isPending` 提供加载态；提供额外 `destructive` 系列样式变体，`destructive-soft` 保留 shadcn 的浅色危险样式 |
@@ -26,9 +28,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `carousel` | [shadcn/carousel.tsx](shadcn/carousel.tsx) | [Carousel](https://ui.shadcn.com/docs/components/base/carousel) | — |
 | `checkbox` | [shadcn/checkbox.tsx](shadcn/checkbox.tsx) | [Checkbox](https://ui.shadcn.com/docs/components/base/checkbox) | — |
 | `combobox` | [shadcn/combobox.tsx](shadcn/combobox.tsx) | [Combobox](https://ui.shadcn.com/docs/components/base/combobox) | 将选中标记移至左侧 |
-| `dialog` | [shadcn/dialog.tsx](shadcn/dialog.tsx) | [Dialog](https://ui.shadcn.com/docs/components/base/dialog) | 额外导出 `createDialogHandle` 及其类型 |
 | `direction` | [shadcn/direction.tsx](shadcn/direction.tsx) | [Direction](https://ui.shadcn.com/docs/components/base/direction) | — |
-| `drawer` | [shadcn/drawer.tsx](shadcn/drawer.tsx) | [Drawer](https://ui.shadcn.com/docs/components/base/drawer) | 额外导出 `createDrawerHandle` 及其类型 |
 | `dropdown-menu` | [shadcn/dropdown-menu.tsx](shadcn/dropdown-menu.tsx) | [Dropdown Menu](https://ui.shadcn.com/docs/components/base/dropdown-menu) | — |
 | `field` | [shadcn/field.tsx](shadcn/field.tsx) | [Field](https://ui.shadcn.com/docs/components/base/field) | — |
 | `input` | [shadcn/input.tsx](shadcn/input.tsx) | [Input](https://ui.shadcn.com/docs/components/base/input) | 参考 coss ui 处理自动填充的文字颜色，用背景色过渡抑制浏览器底色、内阴影绘制填充色 |
