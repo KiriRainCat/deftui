@@ -19,8 +19,6 @@ import * as TableUI from "@/vendor/shadcn/table";
 import * as TabsUI from "@/vendor/shadcn/tabs";
 import * as TooltipUI from "@/vendor/shadcn/tooltip";
 
-export * from "./utils";
-
 export * from "./toast";
 export * from "./sidebar";
 export * from "./datetime";

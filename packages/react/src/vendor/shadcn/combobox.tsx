@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { Combobox as ComboboxPrimitive } from "@base-ui/react"
-import type { ComboboxPrimitiveValue } from "@base-ui/react/combobox"
 import { cn } from "cn"
 
 import { Button } from "@/vendor/shadcn/button"
@@ -295,11 +294,4 @@ export {
   ComboboxTrigger,
   ComboboxValue,
   useComboboxAnchor,
-}
-
-export type { ComboboxItemCollection, ComboboxPrimitiveValue, CreateComboboxItemsOptions } from "@base-ui/react/combobox"
-export function createComboboxItems<Item, Value extends ComboboxPrimitiveValue>(
-  ...args: Parameters<typeof ComboboxPrimitive.createItems<Item, Value>>
-): ReturnType<typeof ComboboxPrimitive.createItems<Item, Value>> {
-  return ComboboxPrimitive.createItems<Item, Value>(...args)
 }
