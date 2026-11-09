@@ -23,6 +23,13 @@ interface RHFFieldProps<
   description?: React.ReactNode;
 
   /**
+   * Associates the label with the control's ID via htmlFor.
+   *
+   * @default false
+   */
+  associateLabel?: boolean;
+
+  /**
    * Injects id, aria-invalid, and aria-describedby into a single non-Fragment element returned by children.
    *
    * Set to false for wrapper elements or when binding `controlProps` to an inner control manually.
@@ -36,7 +43,7 @@ interface RHFFieldProps<
 }
 
 export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Output = T>(props: RHFFieldProps<T, Name, Output>) {
-  const { label, description, injectControlProps = true, children, ...controllerProps } = props;
+  const { label, associateLabel = false, description, injectControlProps = true, children, ...controllerProps } = props;
 
   const id = useId();
   const controller = useController(controllerProps);
@@ -57,7 +64,7 @@ export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Outpu
 
   return (
     <Field data-invalid={controller.fieldState.invalid} data-disabled={controller.field.disabled}>
-      {label != null && <Field.Label htmlFor={controlId}>{label}</Field.Label>}
+      {label != null && <Field.Label htmlFor={associateLabel ? controlId : undefined}>{label}</Field.Label>}
 
       {control
         ? cloneElement(control, {
