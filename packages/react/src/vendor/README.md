@@ -11,10 +11,10 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
-| `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | 替换 `font-bold text-xl` 为 `font-semibold text-lg` |
-| `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | 替换 `font-bold text-xl` 为 `font-semibold text-lg` |
-| `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | 替换 `font-bold text-xl` 为 `font-semibold text-lg` |
-| `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | 替换 `font-bold text-xl` 为 `font-semibold text-lg` |
+| `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | `font-bold text-xl` 换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
+| `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | `font-bold text-xl` 换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
+| `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | `font-bold text-xl` 换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
+| `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | `font-bold text-xl` 换为 `font-semibold text-lg` |
 | `@coss/form` | [coss/form.tsx](coss/form.tsx) | [Form](https://coss.com/ui/docs/components/form) | — |
 | `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | — |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
