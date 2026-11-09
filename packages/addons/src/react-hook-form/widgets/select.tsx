@@ -3,11 +3,11 @@ import type { ComponentProps } from "react";
 
 import { Select } from "@deftui/react";
 
-// oxfmt-ignore
-type Props<V extends string> = { options: Options<V>, onChange?: OnValueChange } &
+type Props<V extends string> = // oxfmt-ignore
   Omit<ComponentProps<typeof Select>, "items" | "children"> &
   Pick<ComponentProps<typeof Select.Trigger>, "size" | "className"> &
-  Pick<ComponentProps<typeof Select.Value>, "placeholder" | "className">;
+  Pick<ComponentProps<typeof Select.Value>, "placeholder" | "className"> &
+  { options: Options<V>, onChange?: OnValueChange };
 
 export function RHFSelect<V extends string>(props: Props<V>) {
   const { options, size, placeholder, className, ...rootProps } = props;
