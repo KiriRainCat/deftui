@@ -70,6 +70,12 @@ export interface ModalRegistry {
 
   /** Dismiss every active call, waiting for children to exit before their parents. */
   dismissAll: () => void;
+
+  /** Whether at least one modal root is open. Closing roots no longer count. */
+  isAnyModalOpen: () => boolean;
+
+  /** Reactive form of `isAnyModalOpen` for React components. */
+  useAnyModalOpen: () => boolean;
 }
 
 export interface ModalRegistryOptions {

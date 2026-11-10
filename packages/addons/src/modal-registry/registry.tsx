@@ -75,6 +75,10 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     return EMPTY;
   }
 
+  function getServerOpenSnapshot() {
+    return false;
+  }
+
   function createRootProps(instance: ModalInstance): ModalRootProps {
     return {
       open: instance.phase !== "closing",
@@ -368,7 +372,16 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     }
   }
 
-  const registry: ModalRegistry = { Provider, define, dismissAll };
+  function isAnyModalOpen() {
+    for (const instance of instances.values()) if (instance.phase !== "closing") return true;
+    return false;
+  }
+
+  function useAnyModalOpen() {
+    return useSyncExternalStore(subscribe, isAnyModalOpen, getServerOpenSnapshot);
+  }
+
+  const registry: ModalRegistry = { Provider, define, dismissAll, isAnyModalOpen, useAnyModalOpen };
   if (cache && options) cache.set(options.key, registry);
 
   return registry;
