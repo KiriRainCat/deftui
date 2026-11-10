@@ -63,9 +63,13 @@ export interface ModalShowOptions<RootProps extends object = {}> {
 
 type ModalArguments<Props> = {} extends Props ? [props?: Props] : [props: Props];
 
+type ModalShowOptionsArguments<Props, RootProps extends object> = {} extends Props
+  ? [props: Props | undefined, options: ModalShowOptions<RootProps>]
+  : [props: Props, options: ModalShowOptions<RootProps>];
+
 interface ModalShow<Props, Output, RootProps extends object = {}> {
   (...args: ModalArguments<Props>): ModalCall<Props, Output>;
-  (props: Props, options: ModalShowOptions<RootProps>): ModalCall<Props, Output>;
+  (...args: ModalShowOptionsArguments<Props, RootProps>): ModalCall<Props, Output>;
 }
 
 export interface ModalRegistry {
