@@ -372,6 +372,17 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     }
   }
 
+  function dismissTop() {
+    let top: ModalInstance | undefined;
+
+    for (const instance of instances.values()) {
+      if (instance.phase !== "active") continue;
+      if (!top || instance.id > top.id) top = instance;
+    }
+
+    if (top) finish(top, { status: "dismissed" });
+  }
+
   function isAnyModalOpen() {
     for (const instance of instances.values()) if (instance.phase !== "closing") return true;
     return false;
@@ -381,7 +392,7 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     return useSyncExternalStore(subscribe, isAnyModalOpen, getServerOpenSnapshot);
   }
 
-  const registry: ModalRegistry = { Provider, define, dismissAll, isAnyModalOpen, useAnyModalOpen };
+  const registry: ModalRegistry = { Provider, define, dismissAll, dismissTop, isAnyModalOpen, useAnyModalOpen };
   if (cache && options) cache.set(options.key, registry);
 
   return registry;

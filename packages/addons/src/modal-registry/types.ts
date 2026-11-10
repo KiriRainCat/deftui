@@ -24,6 +24,7 @@ export interface ModalController<Props extends object = {}, Output = void> {
 
 /** Props for a modal component. */
 export type Modal<Props extends object = {}, Output = void> = Props & { modal: ModalController<Props, Output> };
+
 export type ModalResult<Output> = { status: "resolved"; value: Output } | { status: "dismissed" };
 
 /** A call handle usable as another call's `parent`. */
@@ -70,6 +71,9 @@ export interface ModalRegistry {
 
   /** Dismiss every active call, waiting for children to exit before their parents. */
   dismissAll: () => void;
+
+  /** Dismiss the most recently opened active call. */
+  dismissTop: () => void;
 
   /** Whether at least one modal root is open. Closing roots no longer count. */
   isAnyModalOpen: () => boolean;
