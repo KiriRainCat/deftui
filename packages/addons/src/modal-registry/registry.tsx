@@ -33,9 +33,9 @@ const EMPTY: readonly ModalView[] = [];
  * @example
  * export const registry = createModalRegistry({ hot: import.meta.hot, key: "modals" });
  *
- * export const EditDialog = registry.define(Dialog, EditDialogContent);
- * function EditDialogContent({ id }: Modal<{ id: string }>) {
- *   return <Dialog.Content>{id}</Dialog.Content>;
+ * export const EditDialog = registry.define(Dialog, EditDialogBody);
+ * function EditDialogBody({ id }: Modal<{ id: string }>) {
+ *   return <Dialog.Popup>{id}</Dialog.Popup>;
  * }
  *
  * const handle = EditDialog.show({ id: "123" });
