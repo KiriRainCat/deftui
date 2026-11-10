@@ -51,6 +51,9 @@ export type ModalDefinition<Props extends object = {}, Output = void, RootProps 
 };
 
 export interface ModalShowOptions<RootProps extends object = {}> {
+  /** Reuse the active call with the same id for this definition. */
+  id?: string;
+
   /** Render this call inside the parent call's root. */
   parent?: ModalHandle;
 

@@ -14,6 +14,7 @@ interface ModalInstance {
   children: Set<ModalInstance>;
   props: Record<string, unknown>;
   rootConfig: Record<string, unknown>;
+  dedupeKey?: string;
   phase: "active" | "waiting" | "closing";
   presented: boolean;
   resolveResult: (result: ModalResult<unknown>) => void;
@@ -321,6 +322,17 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
       parentId = id;
     }
 
+    if (options?.id) {
+      for (const instance of instances.values()) {
+        if (instance.phase !== "active" || instance.definition !== definition || instance.dedupeKey !== options.id) continue;
+
+        instance.props = { ...instance.props, ...props };
+        if (options.rootProps) instance.rootConfig = { ...instance.rootConfig, ...options.rootProps };
+        publish();
+        return instance.call;
+      }
+    }
+
     const id = nextId++;
     let resolveResult!: (result: ModalResult<unknown>) => void;
     let rejectResult!: (error: unknown) => void;
@@ -351,6 +363,7 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
       children: new Set(),
       props: props as Record<string, unknown>,
       rootConfig: { ...options?.rootProps },
+      dedupeKey: options?.id,
       phase: "active",
       presented: false,
       resolveResult,
