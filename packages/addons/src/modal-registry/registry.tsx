@@ -13,6 +13,7 @@ interface ModalInstance {
   parentId: number | null;
   children: Set<ModalInstance>;
   props: Record<string, unknown>;
+  rootConfig: Record<string, unknown>;
   phase: "active" | "waiting" | "closing";
   presented: boolean;
   resolveResult: (result: ModalResult<unknown>) => void;
@@ -101,6 +102,7 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
         existing &&
         existing.definition === instance.definition &&
         existing.props === instance.props &&
+        existing.rootConfig === instance.rootConfig &&
         existing.rootProps.open === open &&
         sameViews(existing.children, children)
       ) {
@@ -113,6 +115,7 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
         props: instance.props,
         modal: instance.modal,
         rootProps: createRootProps(instance),
+        rootConfig: instance.rootConfig,
         children,
       });
     }
@@ -261,25 +264,26 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     );
   }
 
-  function define<Props extends object, Output = void>(
-    root: ModalRootComponent,
+  function define<Props extends object, Output = void, RootProps extends object = {}>(
+    root: ModalRootComponent<RootProps>,
     component: ComponentType<Modal<Props, Output>>,
-  ): ModalDefinition<Props, Output> {
+  ): ModalDefinition<Props, Output, RootProps> {
     function ModalRoot() {
       return null;
     }
 
     const definitionRecord: ModalDefinitionRecord = {
-      root,
+      root: root as ModalRootComponent,
       component: component as unknown as ModalDefinitionRecord["component"],
     };
 
     const definition = Object.assign(ModalRoot, {
-      show: ((props?: Props, showOptions?: ModalShowOptions) => open(definitionRecord, props, showOptions)) as ModalDefinition<
+      show: ((props?: Props, showOptions?: ModalShowOptions<RootProps>) => open(definitionRecord, props, showOptions)) as ModalDefinition<
         Props,
-        Output
+        Output,
+        RootProps
       >["show"],
-    }) as ModalDefinition<Props, Output>;
+    }) as ModalDefinition<Props, Output, RootProps>;
 
     const hotName = options?.hot ? (component.displayName ?? component.name) : undefined;
     if (hotDefinitions && hotName) {
@@ -305,7 +309,7 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
   function open(
     definition: ModalDefinitionRecord,
     props: object = {},
-    options?: ModalShowOptions,
+    options?: ModalShowOptions<Record<string, unknown>>,
   ): ModalCall<Record<string, unknown>, unknown> {
     let parentId: number | null = null;
     if (options?.parent) {
@@ -346,6 +350,7 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
       parentId,
       children: new Set(),
       props: props as Record<string, unknown>,
+      rootConfig: { ...options?.rootProps },
       phase: "active",
       presented: false,
       resolveResult,

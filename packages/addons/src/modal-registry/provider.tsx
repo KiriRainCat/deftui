@@ -14,6 +14,7 @@ export interface ModalView {
   props: Record<string, unknown>;
   modal: ModalController<Record<string, unknown>, unknown>;
   rootProps: ModalRootProps;
+  rootConfig: Record<string, unknown>;
   children: readonly ModalView[];
 }
 
@@ -35,7 +36,7 @@ function ModalRenderer({ view, onPresent, onError }: ModalRendererProps) {
   const { root: Root, component: Content } = view.definition;
 
   return (
-    <Root {...view.rootProps}>
+    <Root {...view.rootConfig} {...view.rootProps}>
       <Content {...view.props} modal={view.modal} />
       {outlet}
     </Root>

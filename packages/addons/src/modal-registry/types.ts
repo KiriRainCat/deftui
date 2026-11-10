@@ -8,7 +8,10 @@ export interface ModalRootProps {
 }
 
 /** A Base UI root component controlled by the registry. */
-export type ModalRootComponent = ComponentType<ModalRootProps & { children?: ReactNode }>;
+export type ModalRootComponent<RootProps extends object = {}> = ComponentType<ModalRootProps & RootProps & { children?: ReactNode }>;
+
+/** Root props the caller may override for one call. */
+export type ModalRootOverrides<RootProps extends object> = Partial<Omit<RootProps, keyof ModalRootProps | "children">>;
 
 /** Per-call controls exposed to the modal component. */
 export interface ModalController<Props extends object = {}, Output = void> {
@@ -42,21 +45,24 @@ export interface ModalCall<Props, Output> extends Promise<ModalResult<Output>>, 
 }
 
 /** A callable definition doubles as a Fast Refresh-compatible component handle. */
-export type ModalDefinition<Props extends object = {}, Output = void> = FunctionComponent<{}> & {
+export type ModalDefinition<Props extends object = {}, Output = void, RootProps extends object = {}> = FunctionComponent<{}> & {
   /** Open this definition through its owning registry. */
-  readonly show: ModalShow<Props, Output>;
+  readonly show: ModalShow<Props, Output, RootProps>;
 };
 
-export interface ModalShowOptions {
+export interface ModalShowOptions<RootProps extends object = {}> {
   /** Render this call inside the parent call's root. */
   parent?: ModalHandle;
+
+  /** Root props to shallow-merge for this call. */
+  rootProps?: ModalRootOverrides<RootProps>;
 }
 
 type ModalArguments<Props> = {} extends Props ? [props?: Props] : [props: Props];
 
-interface ModalShow<Props, Output> {
+interface ModalShow<Props, Output, RootProps extends object = {}> {
   (...args: ModalArguments<Props>): ModalCall<Props, Output>;
-  (props: Props, options: ModalShowOptions): ModalCall<Props, Output>;
+  (props: Props, options: ModalShowOptions<RootProps>): ModalCall<Props, Output>;
 }
 
 export interface ModalRegistry {
@@ -64,10 +70,10 @@ export interface ModalRegistry {
   Provider: ComponentType<{ children?: ReactNode }>;
 
   /** Register a modal component. The registry controls the root and injects child calls through its children. */
-  define<Props extends object, Output = void>(
-    root: ModalRootComponent,
+  define<Props extends object, Output = void, RootProps extends object = {}>(
+    root: ModalRootComponent<RootProps>,
     component: ComponentType<Modal<Props, Output>>,
-  ): ModalDefinition<Props, Output>;
+  ): ModalDefinition<Props, Output, RootProps>;
 
   /** Dismiss every active call, waiting for children to exit before their parents. */
   dismissAll: () => void;
