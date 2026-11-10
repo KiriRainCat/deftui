@@ -32,6 +32,7 @@ const badgeVariants = cva(
   }
 )
 
+/** https://ui.shadcn.com/docs/components/base/badge */
 function Badge({
   className,
   variant = "default",

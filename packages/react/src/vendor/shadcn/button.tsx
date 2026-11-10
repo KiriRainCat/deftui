@@ -57,6 +57,7 @@ const buttonVariants = cva(
   }
 )
 
+/** https://ui.shadcn.com/docs/components/base/button */
 function Button({
   className,
   variant = "default",

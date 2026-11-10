@@ -43,10 +43,12 @@ export { IconSwap } from "@/vendor/tailored/icon-swap";
 export { JsonViewer } from "@/vendor/tailored/json-viewer";
 export { FileTree, type FileTreeNode } from "@/vendor/tailored/file-tree";
 
+/** https://ui.shadcn.com/docs/components/base/kbd */
 export const Kbd = /* @__PURE__ */ Object.assign(KbdUI.Kbd, {
   Group: KbdUI.KbdGroup,
 });
 
+/** https://ui.shadcn.com/docs/components/base/tabs */
 export const Tabs = /* @__PURE__ */ Object.assign(TabsUI.Tabs, {
   List: TabsUI.TabsList,
   Trigger: TabsUI.TabsTrigger,
@@ -54,6 +56,7 @@ export const Tabs = /* @__PURE__ */ Object.assign(TabsUI.Tabs, {
   Content: TabsUI.TabsContent,
 });
 
+/** https://ui.shadcn.com/docs/components/base/card */
 export const Card = /* @__PURE__ */ Object.assign(CardUI.Card, {
   Header: CardUI.CardHeader,
   Content: CardUI.CardContent,
@@ -64,12 +67,14 @@ export const Card = /* @__PURE__ */ Object.assign(CardUI.Card, {
   Description: CardUI.CardDescription,
 });
 
+/** https://ui.shadcn.com/docs/components/base/field */
 export const Field = /* @__PURE__ */ Object.assign(FieldUI.Field, {
   Label: FieldUI.FieldLabel,
   Description: FieldUI.FieldDescription,
   Error: FieldUI.FieldError,
 });
 
+/** https://coss.com/ui/docs/components/empty */
 export const Empty = /* @__PURE__ */ Object.assign(EmptyUI.Empty, {
   Header: EmptyUI.EmptyHeader,
   Content: EmptyUI.EmptyContent,
@@ -79,6 +84,7 @@ export const Empty = /* @__PURE__ */ Object.assign(EmptyUI.Empty, {
   Description: EmptyUI.EmptyDescription,
 });
 
+/** https://ui.shadcn.com/docs/components/base/table */
 export const Table = /* @__PURE__ */ Object.assign(TableUI.Table, {
   Header: TableUI.TableHeader,
   Body: TableUI.TableBody,
@@ -89,10 +95,12 @@ export const Table = /* @__PURE__ */ Object.assign(TableUI.Table, {
   Cell: TableUI.TableCell,
 });
 
+/** https://ui.shadcn.com/docs/components/base/radio-group */
 export const Radio = /* @__PURE__ */ Object.assign(RadioUI.RadioGroupItem, {
   Group: RadioUI.RadioGroup,
 });
 
+/** https://ui.shadcn.com/docs/components/base/select */
 export const Select = /* @__PURE__ */ Object.assign(SelectUI.Select, {
   Trigger: SelectUI.SelectTrigger,
   Value: SelectUI.SelectValue,
@@ -105,6 +113,7 @@ export const Select = /* @__PURE__ */ Object.assign(SelectUI.Select, {
   Item: SelectUI.SelectItem,
 });
 
+/** https://coss.com/ui/docs/components/drawer */
 export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
   Trigger: DrawerUI.DrawerTrigger,
 
@@ -119,6 +128,7 @@ export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
   Description: DrawerUI.DrawerDescription,
 });
 
+/** https://coss.com/ui/docs/components/dialog */
 export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
   Trigger: DialogUI.DialogTrigger,
 
@@ -133,6 +143,7 @@ export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
   Description: DialogUI.DialogDescription,
 });
 
+/** https://ui.shadcn.com/docs/components/base/tooltip */
 export const Tooltip = /* @__PURE__ */ Object.assign(TooltipUI.Tooltip, {
   Provider: TooltipUI.TooltipProvider,
 
@@ -140,6 +151,7 @@ export const Tooltip = /* @__PURE__ */ Object.assign(TooltipUI.Tooltip, {
   Content: TooltipUI.TooltipContent,
 });
 
+/** https://ui.shadcn.com/docs/components/base/popover */
 export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
   Trigger: PopoverUI.PopoverTrigger,
 
@@ -149,6 +161,7 @@ export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
   Description: PopoverUI.PopoverDescription,
 });
 
+/** https://ui.shadcn.com/docs/components/base/dropdown-menu */
 export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
   Trigger: DropdownUI.DropdownMenuTrigger,
 
@@ -171,6 +184,7 @@ export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
   CheckboxItem: DropdownUI.DropdownMenuCheckboxItem,
 });
 
+/** https://ui.shadcn.com/docs/components/base/combobox */
 export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
   Content: ComboboxUI.ComboboxContent,
   Empty: ComboboxUI.ComboboxEmpty,
@@ -191,6 +205,7 @@ export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
   Separator: ComboboxUI.ComboboxSeparator,
 });
 
+/** https://ui.shadcn.com/docs/components/base/progress */
 export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
   Label: ProgressUI.ProgressLabel,
   Value: ProgressUI.ProgressValue,
@@ -199,10 +214,12 @@ export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
   Indicator: ProgressUI.ProgressIndicator,
 });
 
+/** https://ui.shadcn.com/docs/components/base/calendar */
 export const Calendar = /* @__PURE__ */ Object.assign(CalendarUI.Calendar, {
   DayButton: CalendarUI.CalendarDayButton,
 });
 
+/** https://ui.shadcn.com/docs/components/base/breadcrumb */
 export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb, {
   List: BreadcrumbUI.BreadcrumbList,
 
@@ -214,6 +231,7 @@ export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb,
   Page: BreadcrumbUI.BreadcrumbPage,
 });
 
+/** https://coss.com/ui/docs/components/alert-dialog */
 export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDialog, {
   Trigger: AlertDialogUI.AlertDialogTrigger,
 
@@ -227,11 +245,13 @@ export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDial
   Description: AlertDialogUI.AlertDialogDescription,
 });
 
+/** https://ui.shadcn.com/docs/components/base/button-group */
 export const ButtonGroup = /* @__PURE__ */ Object.assign(ButtonGroupUI.ButtonGroup, {
   Text: ButtonGroupUI.ButtonGroupText,
   Separator: ButtonGroupUI.ButtonGroupSeparator,
 });
 
+/** https://ui.shadcn.com/docs/components/base/input-group */
 export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup, {
   Addon: InputGroupUI.InputGroupAddon,
   AddonText: InputGroupUI.InputGroupText,

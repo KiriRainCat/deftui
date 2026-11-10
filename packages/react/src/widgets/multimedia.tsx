@@ -8,11 +8,13 @@ import * as LightboxUI from "@/vendor/tailored/lightbox";
 
 export type * from "@/vendor/tailored/lightbox";
 
+/** https://ui.iandefined.com/docs/components/lightbox/ */
 export const Lightbox = /* @__PURE__ */ Object.assign(LightboxUI.Lightbox, {
   Trigger: LightboxUI.LightboxTrigger,
   Content: LightboxUI.LightboxContent,
 });
 
+/** https://ui.shadcn.com/docs/components/base/carousel */
 export const Carousel = /* @__PURE__ */ Object.assign(CarouselUI.Carousel, {
   Content: CarouselUI.CarouselContent,
   Previous: CarouselUI.CarouselPrevious,

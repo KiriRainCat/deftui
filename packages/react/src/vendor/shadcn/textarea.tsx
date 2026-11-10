@@ -1,6 +1,7 @@
 import * as React from "react"
 import { cn } from "cn"
 
+/** https://ui.shadcn.com/docs/components/base/textarea */
 function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
   return (
     <textarea

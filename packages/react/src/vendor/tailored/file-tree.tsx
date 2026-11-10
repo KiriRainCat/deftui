@@ -54,6 +54,7 @@ function flatten(
   })
 }
 
+/** https://ui.tinkererslabs.com/docs/components/file-tree/ */
 export function FileTree({
   nodes,
   expandedIds,

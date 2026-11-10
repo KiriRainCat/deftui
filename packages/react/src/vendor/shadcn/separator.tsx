@@ -3,6 +3,7 @@
 import { Separator as SeparatorPrimitive } from "@base-ui/react/separator"
 import { cn } from "cn"
 
+/** https://ui.shadcn.com/docs/components/base/separator */
 function Separator({
   className,
   orientation = "horizontal",

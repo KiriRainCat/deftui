@@ -32,6 +32,7 @@ type IconSwapProps = Omit<HTMLMotionProps<"span">, "children"> & {
   state: React.Key;
 };
 
+/** https://ui.iandefined.com/docs/utilities/icon-swap/ */
 function IconSwap({ children, state, ...props }: IconSwapProps) {
   return (
     <MotionConfig reducedMotion="user">

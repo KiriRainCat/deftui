@@ -10,14 +10,20 @@ import { useDropzone } from "react-dropzone";
 
 import { buttonVariants } from "@/vendor/shadcn/button";
 
-type DropzoneProps = DropzoneOptions & Omit<ComponentProps<"div">, keyof DropzoneOptions>;
-
-export function formatSize(bytes: number) {
-  const units = ["B", "KB", "MB", "GB", "TB"];
-  const index = bytes > 0 ? Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1) : 0;
-  return `${Number((bytes / 1024 ** index).toFixed(1))} ${units[index]}`;
+export type * from "react-dropzone";
+export { useDropzone } from "react-dropzone";
+export function formatBytes(bytes: number, nospace = false) {
+  if (!Number.isFinite(bytes) || bytes < 0) return "—";
+  if (bytes === 0) return `0${nospace ? "" : " "}B`;
+  const units = ["B", "KB", "MB", "GB", "TB", "PB"];
+  const index = Math.max(0, Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1));
+  const value = Number((bytes / 1024 ** index).toFixed(1));
+  return `${value}${nospace ? "" : " "}${units[index]}`;
 }
 
+type DropzoneProps = DropzoneOptions & Omit<ComponentProps<"div">, keyof DropzoneOptions>;
+
+/** https://react-dropzone.js.org/ */
 export function Dropzone({
   accept,
   minSize,
@@ -85,7 +91,7 @@ export function Dropzone({
 
   const limits = [
     multiple === false ? "单个文件" : maxFiles && maxFiles > 0 ? `最多 ${maxFiles} 个文件` : undefined,
-    maxSize !== undefined && Number.isFinite(maxSize) ? `每个不超过 ${formatSize(maxSize)}` : undefined,
+    maxSize !== undefined && Number.isFinite(maxSize) ? `每个不超过 ${formatBytes(maxSize)}` : undefined,
   ].filter(Boolean);
 
   return (

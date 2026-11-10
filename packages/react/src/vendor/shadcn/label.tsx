@@ -3,6 +3,7 @@
 import * as React from "react"
 import { cn } from "cn"
 
+/** https://ui.shadcn.com/docs/components/base/label */
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (
     <label

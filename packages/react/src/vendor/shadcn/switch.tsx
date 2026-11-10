@@ -3,6 +3,7 @@
 import { Switch as SwitchPrimitive } from "@base-ui/react/switch"
 import { cn } from "cn"
 
+/** https://ui.shadcn.com/docs/components/base/switch */
 function Switch({
   className,
   size = "default",

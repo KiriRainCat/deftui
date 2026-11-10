@@ -161,6 +161,7 @@ const VALUE_CLASS: Record<Kind, string> = {
   array: "text-muted-foreground",
 }
 
+/** https://ui.tinkererslabs.com/docs/components/json-viewer/ */
 export function JsonViewer({
   value,
   rootName = "root",

@@ -4,6 +4,7 @@ import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 import type React from "react";
 import { cn } from "@/vendor/shadcn/lib/utils";
 
+/** https://coss.com/ui/docs/components/scroll-area */
 export function ScrollArea({
   className,
   children,
