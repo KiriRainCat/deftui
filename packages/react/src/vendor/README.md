@@ -12,6 +12,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
 | `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
+| `@coss/calendar` | [coss/calendar.tsx](coss/calendar.tsx) | [Calendar](https://coss.com/ui/docs/components/calendar) | — |
 | `@coss/card` | [coss/card.tsx](coss/card.tsx) | [Card](https://coss.com/ui/docs/components/card) | 用 `--card-spacing` 与 `--card-gap` 替代分段 padding；新增 `spacing`、`gap` 属性写入对应变量；标题改为 `text-base font-semibold leading-normal`；首尾图片贴边并补圆角 |
 | `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
 | `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
@@ -25,7 +26,6 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `breadcrumb` | [shadcn/breadcrumb.tsx](shadcn/breadcrumb.tsx) | [Breadcrumb](https://ui.shadcn.com/docs/components/base/breadcrumb) | 未显式指定 `BreadcrumbList` 则自动包裹 |
 | `button` | [shadcn/button.tsx](shadcn/button.tsx) | [Button](https://ui.shadcn.com/docs/components/base/button) | `pill` 提供全圆角；`isPending` 提供加载态；提供额外 `destructive` 系列样式变体 |
 | `button-group` | [shadcn/button-group.tsx](shadcn/button-group.tsx) | [Button Group](https://ui.shadcn.com/docs/components/base/button-group) | — |
-| `calendar` | [shadcn/calendar.tsx](shadcn/calendar.tsx) | [Calendar](https://ui.shadcn.com/docs/components/base/calendar) | 将 `react-day-picker` 导入改为 `@daypicker/react` |
 | `carousel` | [shadcn/carousel.tsx](shadcn/carousel.tsx) | [Carousel](https://ui.shadcn.com/docs/components/base/carousel) | — |
 | `checkbox` | [shadcn/checkbox.tsx](shadcn/checkbox.tsx) | [Checkbox](https://ui.shadcn.com/docs/components/base/checkbox) | — |
 | `combobox` | [shadcn/combobox.tsx](shadcn/combobox.tsx) | [Combobox](https://ui.shadcn.com/docs/components/base/combobox) | 将选中标记移至左侧 |

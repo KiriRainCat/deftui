@@ -6,7 +6,6 @@ import * as EmptyUI from "@/vendor/coss/empty";
 import * as TableUI from "@/vendor/coss/table";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
-import * as CalendarUI from "@/vendor/shadcn/calendar";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
 import * as DropdownUI from "@/vendor/shadcn/dropdown-menu";
 import * as FieldUI from "@/vendor/shadcn/field";
@@ -26,7 +25,6 @@ export * from "./dropzone";
 export * from "./multimedia";
 export * from "./pagination";
 
-export { Form } from "@/vendor/coss/form";
 export { Label } from "@/vendor/shadcn/label";
 export { Input } from "@/vendor/shadcn/input";
 export { Badge } from "@/vendor/shadcn/badge";
@@ -37,6 +35,9 @@ export { Skeleton } from "@/vendor/shadcn/skeleton";
 export { Checkbox } from "@/vendor/shadcn/checkbox";
 export { Textarea } from "@/vendor/shadcn/textarea";
 export { Separator } from "@/vendor/shadcn/separator";
+
+export { Form } from "@/vendor/coss/form";
+export { Calendar } from "@/vendor/coss/calendar";
 export { ScrollArea } from "@/vendor/coss/scroll-area";
 
 export { IconSwap } from "@/vendor/tailored/icon-swap";
@@ -223,11 +224,6 @@ export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
 
   Track: ProgressUI.ProgressTrack,
   Indicator: ProgressUI.ProgressIndicator,
-});
-
-/** https://ui.shadcn.com/docs/components/base/calendar */
-export const Calendar = /* @__PURE__ */ Object.assign(CalendarUI.Calendar, {
-  DayButton: CalendarUI.CalendarDayButton,
 });
 
 /** https://ui.shadcn.com/docs/components/base/breadcrumb */

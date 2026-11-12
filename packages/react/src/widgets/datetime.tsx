@@ -1,13 +1,14 @@
 import type { DateRange } from "@daypicker/react";
 import type { ComponentProps } from "react";
 
+import { enUS, zhCN } from "@daypicker/react/locale";
 import { cn } from "cn";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 
+import { Calendar } from "@/vendor/coss/calendar";
 import { Button } from "@/vendor/shadcn/button";
-import { Calendar } from "@/vendor/shadcn/calendar";
 import { Input } from "@/vendor/shadcn/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/vendor/shadcn/popover";
 
@@ -51,6 +52,7 @@ export function DatePicker({
   ...props
 }: DatePickerProps) {
   const [internalValue, setInternalValue] = useState(defaultValue);
+  const locale = navigator.language.startsWith("zh") ? zhCN : enUS;
   const date = value === undefined ? internalValue : value;
 
   function handleSelect(selected: Date | undefined) {
@@ -71,6 +73,7 @@ export function DatePicker({
 
       <PopoverContent>
         <Calendar
+          locale={locale}
           defaultMonth={date ?? undefined}
           {...calendarProps}
           disabled={disabled || calendarProps?.disabled}
@@ -94,6 +97,7 @@ export function DateRangePicker({
   ...props
 }: DateRangePickerProps) {
   const [internalValue, setInternalValue] = useState(defaultValue);
+  const locale = navigator.language.startsWith("zh") ? zhCN : enUS;
   const date = value === undefined ? internalValue : value;
 
   function handleSelect(selected: DateRange | undefined) {
@@ -115,6 +119,7 @@ export function DateRangePicker({
 
       <PopoverContent>
         <Calendar
+          locale={locale}
           defaultMonth={date?.from}
           {...calendarProps}
           disabled={disabled || calendarProps?.disabled}
