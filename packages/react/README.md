@@ -32,9 +32,9 @@ export function Example() {
         <Card.Description>Compose your UI using Compound Component API</Card.Description>
       </Card.Header>
 
-      <Card.Content>
+      <Card.Panel>
         <Button>Get started</Button>
-      </Card.Content>
+      </Card.Panel>
     </Card>
   );
 }

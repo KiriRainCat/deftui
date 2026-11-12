@@ -11,20 +11,21 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 
 | ID | File | Docs | Modifications |
 | --- | --- | --- | --- |
-| `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | `font-bold text-xl` 换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
-| `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | `font-bold text-xl` 换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
-| `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | `font-bold text-xl` 换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
-| `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | `font-bold text-xl` 换为 `font-semibold text-lg` |
+| `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
+| `@coss/card` | [coss/card.tsx](coss/card.tsx) | [Card](https://coss.com/ui/docs/components/card) | 用 `--card-spacing` 与 `--card-gap` 替代分段 padding；新增 `spacing`、`gap` 属性写入对应变量；标题改为 `text-base font-semibold leading-normal`；首尾图片贴边并补圆角 |
+| `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
+| `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
+| `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | `font-bold text-xl` 替换为 `font-semibold text-lg` |
 | `@coss/form` | [coss/form.tsx](coss/form.tsx) | [Form](https://coss.com/ui/docs/components/form) | — |
 | `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | — |
+| `@coss/table` | [coss/table.tsx](coss/table.tsx) | [Table](https://coss.com/ui/docs/components/table) | 默认变体的 `TableFooter` 移除底色，与 `card` 变体一样保持透明 |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
 | `@coss/use-media-query` | [coss/hooks/use-media-query.ts](coss/hooks/use-media-query.ts) | [useMediaQuery](https://coss.com/ui/docs/hooks/use-media-query) | 断点：`md` 设为 768px，与 Tailwind 默认值一致 |
 | `badge` | [shadcn/badge.tsx](shadcn/badge.tsx) | [Badge](https://ui.shadcn.com/docs/components/base/badge) | 提供 `info`、`success`、`warning` 语义变体 |
 | `breadcrumb` | [shadcn/breadcrumb.tsx](shadcn/breadcrumb.tsx) | [Breadcrumb](https://ui.shadcn.com/docs/components/base/breadcrumb) | 未显式指定 `BreadcrumbList` 则自动包裹 |
-| `button` | [shadcn/button.tsx](shadcn/button.tsx) | [Button](https://ui.shadcn.com/docs/components/base/button) | `pill` 提供全圆角；`isPending` 提供加载态；提供额外 `destructive` 系列样式变体，`destructive-soft` 保留 shadcn 的浅色危险样式 |
+| `button` | [shadcn/button.tsx](shadcn/button.tsx) | [Button](https://ui.shadcn.com/docs/components/base/button) | `pill` 提供全圆角；`isPending` 提供加载态；提供额外 `destructive` 系列样式变体 |
 | `button-group` | [shadcn/button-group.tsx](shadcn/button-group.tsx) | [Button Group](https://ui.shadcn.com/docs/components/base/button-group) | — |
 | `calendar` | [shadcn/calendar.tsx](shadcn/calendar.tsx) | [Calendar](https://ui.shadcn.com/docs/components/base/calendar) | 将 `react-day-picker` 导入改为 `@daypicker/react` |
-| `card` | [shadcn/card.tsx](shadcn/card.tsx) | [Card](https://ui.shadcn.com/docs/components/base/card) | — |
 | `carousel` | [shadcn/carousel.tsx](shadcn/carousel.tsx) | [Carousel](https://ui.shadcn.com/docs/components/base/carousel) | — |
 | `checkbox` | [shadcn/checkbox.tsx](shadcn/checkbox.tsx) | [Checkbox](https://ui.shadcn.com/docs/components/base/checkbox) | — |
 | `combobox` | [shadcn/combobox.tsx](shadcn/combobox.tsx) | [Combobox](https://ui.shadcn.com/docs/components/base/combobox) | 将选中标记移至左侧 |
@@ -46,7 +47,6 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `skeleton` | [shadcn/skeleton.tsx](shadcn/skeleton.tsx) | [Skeleton](https://ui.shadcn.com/docs/components/base/skeleton) | — |
 | `spinner` | [shadcn/spinner.tsx](shadcn/spinner.tsx) | [Spinner](https://ui.shadcn.com/docs/components/base/spinner) | — |
 | `switch` | [shadcn/switch.tsx](shadcn/switch.tsx) | [Switch](https://ui.shadcn.com/docs/components/base/switch) | — |
-| `table` | [shadcn/table.tsx](shadcn/table.tsx) | [Table](https://ui.shadcn.com/docs/components/base/table) | — |
 | `tabs` | [shadcn/tabs.tsx](shadcn/tabs.tsx) | [Tabs](https://ui.shadcn.com/docs/components/base/tabs) | — |
 | `textarea` | [shadcn/textarea.tsx](shadcn/textarea.tsx) | [Textarea](https://ui.shadcn.com/docs/components/base/textarea) | — |
 | `toast` | [shadcn/toast.tsx](shadcn/toast.tsx) | [Toast](https://ui.shadcn.com/docs/components/base/toast) | — |

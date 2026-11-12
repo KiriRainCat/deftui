@@ -30,9 +30,9 @@ export function Example() {
         <Card.Description>用复合组件 API 构建界面。</Card.Description>
       </Card.Header>
 
-      <Card.Content>
+      <Card.Panel>
         <Button>开始使用</Button>
-      </Card.Content>
+      </Card.Panel>
     </Card>
   );
 }

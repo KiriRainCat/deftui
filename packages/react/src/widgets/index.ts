@@ -1,11 +1,12 @@
 import * as AlertDialogUI from "@/vendor/coss/alert-dialog";
+import * as CardUI from "@/vendor/coss/card";
 import * as DialogUI from "@/vendor/coss/dialog";
 import * as DrawerUI from "@/vendor/coss/drawer";
 import * as EmptyUI from "@/vendor/coss/empty";
+import * as TableUI from "@/vendor/coss/table";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as CalendarUI from "@/vendor/shadcn/calendar";
-import * as CardUI from "@/vendor/shadcn/card";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
 import * as DropdownUI from "@/vendor/shadcn/dropdown-menu";
 import * as FieldUI from "@/vendor/shadcn/field";
@@ -15,7 +16,6 @@ import * as PopoverUI from "@/vendor/shadcn/popover";
 import * as ProgressUI from "@/vendor/shadcn/progress";
 import * as RadioUI from "@/vendor/shadcn/radio-group";
 import * as SelectUI from "@/vendor/shadcn/select";
-import * as TableUI from "@/vendor/shadcn/table";
 import * as TabsUI from "@/vendor/shadcn/tabs";
 import * as TooltipUI from "@/vendor/shadcn/tooltip";
 
@@ -56,15 +56,25 @@ export const Tabs = /* @__PURE__ */ Object.assign(TabsUI.Tabs, {
   Content: TabsUI.TabsContent,
 });
 
-/** https://ui.shadcn.com/docs/components/base/card */
+/** https://coss.com/ui/docs/components/card */
 export const Card = /* @__PURE__ */ Object.assign(CardUI.Card, {
   Header: CardUI.CardHeader,
-  Content: CardUI.CardContent,
+  Panel: CardUI.CardPanel,
   Footer: CardUI.CardFooter,
 
   Title: CardUI.CardTitle,
   Action: CardUI.CardAction,
   Description: CardUI.CardDescription,
+});
+
+/** https://coss.com/ui/docs/components/card#cardframe */
+export const Frame = /* @__PURE__ */ Object.assign(CardUI.CardFrame, {
+  Header: CardUI.CardFrameHeader,
+  Footer: CardUI.CardFrameFooter,
+
+  Title: CardUI.CardFrameTitle,
+  Description: CardUI.CardFrameDescription,
+  Action: CardUI.CardFrameAction,
 });
 
 /** https://ui.shadcn.com/docs/components/base/field */
@@ -84,11 +94,12 @@ export const Empty = /* @__PURE__ */ Object.assign(EmptyUI.Empty, {
   Description: EmptyUI.EmptyDescription,
 });
 
-/** https://ui.shadcn.com/docs/components/base/table */
+/** https://coss.com/ui/docs/components/table */
 export const Table = /* @__PURE__ */ Object.assign(TableUI.Table, {
   Header: TableUI.TableHeader,
   Body: TableUI.TableBody,
   Footer: TableUI.TableFooter,
+  Caption: TableUI.TableCaption,
 
   Row: TableUI.TableRow,
   Head: TableUI.TableHead,
