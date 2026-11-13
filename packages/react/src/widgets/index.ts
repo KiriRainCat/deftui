@@ -4,6 +4,11 @@ import * as DialogUI from "@/vendor/coss/dialog";
 import * as DrawerUI from "@/vendor/coss/drawer";
 import * as EmptyUI from "@/vendor/coss/empty";
 import * as TableUI from "@/vendor/coss/table";
+import * as CascaderUI from "@/vendor/reui.io/cascader/cascader";
+import * as CascaderFooterUI from "@/vendor/reui.io/cascader/cascader-footer";
+import * as CascaderItemUI from "@/vendor/reui.io/cascader/cascader-item";
+import * as CascaderNavUI from "@/vendor/reui.io/cascader/cascader-nav";
+import * as CascaderVirtualUI from "@/vendor/reui.io/cascader/cascader-virtual";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
@@ -170,6 +175,42 @@ export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
 
   Title: PopoverUI.PopoverTitle,
   Description: PopoverUI.PopoverDescription,
+});
+
+/** https://reui.io/docs/components/cascader */
+export const Cascader = /* @__PURE__ */ Object.assign(CascaderUI.Cascader, {
+  Trigger: CascaderUI.CascaderTrigger,
+
+  Popup: CascaderUI.CascaderContent,
+
+  Panel: CascaderUI.CascaderPanel,
+  List: CascaderUI.CascaderList,
+  Empty: CascaderUI.CascaderEmpty,
+  Status: CascaderUI.CascaderStatus,
+
+  Chips: CascaderUI.CascaderChips,
+  Chip: CascaderUI.CascaderChip,
+
+  Nav: CascaderNavUI.CascaderNav,
+  Back: CascaderNavUI.CascaderBack,
+  Breadcrumb: CascaderNavUI.CascaderBreadcrumb,
+  Input: CascaderNavUI.CascaderInput,
+  Value: CascaderNavUI.CascaderValue,
+
+  Item: CascaderItemUI.CascaderItem,
+  Items: CascaderItemUI.CascaderItems,
+  Group: CascaderItemUI.CascaderGroup,
+  Label: CascaderItemUI.CascaderLabel,
+  Separator: CascaderItemUI.CascaderSeparator,
+
+  Footer: CascaderFooterUI.CascaderFooter,
+  Action: CascaderFooterUI.CascaderAction,
+  Submenu: CascaderFooterUI.CascaderSubmenu,
+  SubmenuTrigger: CascaderFooterUI.CascaderSubmenuTrigger,
+  SubmenuContent: CascaderFooterUI.CascaderSubmenuContent,
+
+  /** Windowed replacement for `Items` inside `List`. */
+  VirtualItems: CascaderVirtualUI.CascaderVirtualItems,
 });
 
 /** https://ui.shadcn.com/docs/components/base/dropdown-menu */
