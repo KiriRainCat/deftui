@@ -9,6 +9,7 @@ import * as CascaderFooterUI from "@/vendor/reui.io/cascader/cascader-footer";
 import * as CascaderItemUI from "@/vendor/reui.io/cascader/cascader-item";
 import * as CascaderNavUI from "@/vendor/reui.io/cascader/cascader-nav";
 import * as CascaderVirtualUI from "@/vendor/reui.io/cascader/cascader-virtual";
+import * as FrameUI from "@/vendor/reui.io/frame";
 import * as TimelineUI from "@/vendor/reui.io/timeline";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
@@ -50,14 +51,14 @@ export const Card = /* @__PURE__ */ Object.assign(CardUI.Card, {
   Description: CardUI.CardDescription,
 });
 
-/** https://coss.com/ui/docs/components/card#cardframe */
-export const Frame = /* @__PURE__ */ Object.assign(CardUI.CardFrame, {
-  Header: CardUI.CardFrameHeader,
-  Footer: CardUI.CardFrameFooter,
+/** https://reui.io/docs/components/base/frame */
+export const Frame = /* @__PURE__ */ Object.assign(FrameUI.Frame, {
+  Header: FrameUI.FrameHeader,
+  Panel: FrameUI.FramePanel,
+  Footer: FrameUI.FrameFooter,
 
-  Title: CardUI.CardFrameTitle,
-  Description: CardUI.CardFrameDescription,
-  Action: CardUI.CardFrameAction,
+  Title: FrameUI.FrameTitle,
+  Description: FrameUI.FrameDescription,
 });
 
 /** https://ui.shadcn.com/docs/components/base/field */
