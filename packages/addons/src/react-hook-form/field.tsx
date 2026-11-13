@@ -40,10 +40,11 @@ interface RHFFieldProps<
 
   /** Callback with `useController` states and `controllerProps` for rendering JSX. */
   children: (state: UseControllerReturn<Values, Name>, controlProps: ControlProps) => React.ReactNode;
+  className?: string;
 }
 
 export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Output = T>(props: RHFFieldProps<T, Name, Output>) {
-  const { label, associateLabel = false, description, injectControlProps = true, children, ...controllerProps } = props;
+  const { label, description, associateLabel = false, injectControlProps = true, className, children, ...controllerProps } = props;
 
   const id = useId();
   const controller = useController(controllerProps);
@@ -63,7 +64,7 @@ export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Outpu
   const describedBy = [...new Set(descriptionIds)].join(" ") || undefined;
 
   return (
-    <Field data-invalid={controller.fieldState.invalid} data-disabled={controller.field.disabled}>
+    <Field data-invalid={controller.fieldState.invalid} data-disabled={controller.field.disabled} className={className}>
       {label != null && <Field.Label htmlFor={associateLabel ? controlId : undefined}>{label}</Field.Label>}
 
       {control
