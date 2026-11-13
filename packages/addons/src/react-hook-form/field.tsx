@@ -1,15 +1,10 @@
+import type { InputControlProps } from "./widgets/types";
 import type React from "react";
 import type { FieldPath, FieldValues, UseControllerProps, UseControllerReturn } from "react-hook-form";
 
 import { Field } from "@deftui/react";
 import { cloneElement, Fragment, isValidElement, useId } from "react";
 import { useController } from "react-hook-form";
-
-interface ControlProps {
-  "id": string;
-  "aria-invalid": boolean;
-  "aria-describedby": string | undefined;
-}
 
 interface RHFFieldProps<
   Values extends FieldValues,
@@ -39,7 +34,7 @@ interface RHFFieldProps<
   injectControlProps?: boolean;
 
   /** Callback with `useController` states and `controllerProps` for rendering JSX. */
-  children: (state: UseControllerReturn<Values, Name>, controlProps: ControlProps) => React.ReactNode;
+  children: (state: UseControllerReturn<Values, Name>, controlProps: InputControlProps) => React.ReactNode;
   className?: string;
 }
 
@@ -50,7 +45,7 @@ export function RHFField<T extends FieldValues, Name extends FieldPath<T>, Outpu
   const controller = useController(controllerProps);
   const hasError = Boolean(controller.fieldState.error?.message);
 
-  const controlProps: ControlProps = {
+  const controlProps: InputControlProps = {
     id,
     "aria-invalid": controller.fieldState.invalid,
     "aria-describedby": [description != null && `${id}-description`, hasError && `${id}-error`].filter(Boolean).join(" ") || undefined,

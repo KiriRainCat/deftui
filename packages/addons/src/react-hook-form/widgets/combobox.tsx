@@ -1,11 +1,12 @@
-import type { OnValueChange, Options } from "./types";
+import type { InputControlProps, OnValueChange, Options } from "./types";
 import type { ComponentProps } from "react";
 
 import { Combobox } from "@deftui/react";
 
 type Props<V extends string> = // oxfmt-ignore
+  InputControlProps &
   Omit<ComponentProps<typeof Combobox>, "items" | "children"> &
-  Pick<ComponentProps<typeof Combobox.Input>, "size" | "placeholder" | "showClear" | "className"> &
+  Pick<ComponentProps<typeof Combobox.Input>, "size" | "placeholder" | "showClear" | "className" > &
   { options: Options<V>; emptyLabel?: string; onChange?: OnValueChange };
 
 export function RHFCombobox<V extends string>(props: Props<V>) {
@@ -13,7 +14,14 @@ export function RHFCombobox<V extends string>(props: Props<V>) {
 
   return (
     <Combobox {...rootProps} onValueChange={rootProps.onChange} items={options}>
-      <Combobox.Input size={size} placeholder={placeholder} showClear={showClear} className={className} />
+      <Combobox.Input
+        size={size}
+        showClear={showClear}
+        placeholder={placeholder}
+        aria-invalid={rootProps["aria-invalid"]}
+        aria-describedby={rootProps["aria-describedby"]}
+        className={className}
+      />
 
       <Combobox.Content>
         <Combobox.Empty>{emptyLabel}</Combobox.Empty>
