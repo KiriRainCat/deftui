@@ -9,6 +9,7 @@ import * as CascaderFooterUI from "@/vendor/reui.io/cascader/cascader-footer";
 import * as CascaderItemUI from "@/vendor/reui.io/cascader/cascader-item";
 import * as CascaderNavUI from "@/vendor/reui.io/cascader/cascader-nav";
 import * as CascaderVirtualUI from "@/vendor/reui.io/cascader/cascader-virtual";
+import * as TimelineUI from "@/vendor/reui.io/timeline";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
@@ -241,6 +242,20 @@ export const Progress = /* @__PURE__ */ Object.assign(ProgressUI.Progress, {
 
   Track: ProgressUI.ProgressTrack,
   Indicator: ProgressUI.ProgressIndicator,
+});
+
+/** https://reui.io/docs/components/timeline */
+export const Timeline = /* @__PURE__ */ Object.assign(TimelineUI.Timeline, {
+  Item: TimelineUI.TimelineItem,
+
+  Header: TimelineUI.TimelineHeader,
+  Content: TimelineUI.TimelineContent,
+
+  Indicator: TimelineUI.TimelineIndicator,
+  Separator: TimelineUI.TimelineSeparator,
+
+  Date: TimelineUI.TimelineDate,
+  Title: TimelineUI.TimelineTitle,
 });
 
 /** https://ui.shadcn.com/docs/components/base/breadcrumb */
