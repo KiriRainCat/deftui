@@ -3,11 +3,13 @@ import type { ComponentProps } from "react";
 
 import { Combobox } from "@deftui/react";
 
-type Props<V extends string> = // oxfmt-ignore
-  InputControlProps &
-  Omit<ComponentProps<typeof Combobox>, "items" | "children"> &
-  Pick<ComponentProps<typeof Combobox.Input>, "size" | "placeholder" | "showClear" | "className" > &
-  { options: Options<V>; emptyLabel?: string; onChange?: OnValueChange };
+type Props<V extends string> = InputControlProps &
+  Omit<ComponentProps<typeof Combobox>, "items" | "children" | "onValueChange"> &
+  Pick<ComponentProps<typeof Combobox.Input>, "size" | "placeholder" | "showClear" | "className"> & {
+    options: Options<V>;
+    emptyLabel?: string;
+    onChange?: OnValueChange;
+  };
 
 export function RHFCombobox<V extends string>(props: Props<V>) {
   const { options, size, placeholder, showClear, className, emptyLabel, ...rootProps } = props;

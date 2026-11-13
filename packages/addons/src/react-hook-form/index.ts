@@ -1,5 +1,6 @@
 import { RHFField } from "./field";
 import { RHFForm } from "./form";
+import { RHFCascader } from "./widgets/cascader";
 import { RHFCombobox } from "./widgets/combobox";
 import { RHFSelect } from "./widgets/select";
 
@@ -15,4 +16,7 @@ export const RHF = {
 
   /** One-liner component for Combobox, used under {@link RHF.Field}. */
   Combobox: RHFCombobox,
+
+  /** One-liner drill-mode component for Cascader, used under {@link RHF.Field}. */
+  Cascader: RHFCascader,
 };
