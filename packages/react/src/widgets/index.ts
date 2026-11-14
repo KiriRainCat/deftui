@@ -11,6 +11,7 @@ import * as CascaderNavUI from "@/vendor/reui.io/cascader/cascader-nav";
 import * as CascaderVirtualUI from "@/vendor/reui.io/cascader/cascader-virtual";
 import * as FrameUI from "@/vendor/reui.io/frame";
 import * as TimelineUI from "@/vendor/reui.io/timeline";
+import * as AvatarUI from "@/vendor/shadcn/avatar";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
@@ -315,4 +316,14 @@ export const InputGroup = /* @__PURE__ */ Object.assign(InputGroupUI.InputGroup,
   Input: InputGroupUI.InputGroupInput,
   Textarea: InputGroupUI.InputGroupTextarea,
   Button: InputGroupUI.InputGroupButton,
+});
+
+/** https://ui.shadcn.com/docs/components/base/avatar */
+export const Avatar = /* @__PURE__ */ Object.assign(AvatarUI.Avatar, {
+  Image: AvatarUI.AvatarImage,
+  Badge: AvatarUI.AvatarBadge,
+  Fallback: AvatarUI.AvatarFallback,
+
+  Group: AvatarUI.AvatarGroup,
+  GroupCount: AvatarUI.AvatarGroupCount,
 });

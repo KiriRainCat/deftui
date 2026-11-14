@@ -25,6 +25,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `@reui/cascader` | [reui.io/cascader/cascader.tsx](reui.io/cascader/cascader.tsx) | [Cascader](https://reui.io/docs/components/cascader) | 重映射 `scroll-area` 与 `spinner` 的导入 |
 | `@reui/frame` | [reui.io/frame.tsx](reui.io/frame.tsx) | [Frame](https://reui.io/docs/components/base/frame) | — |
 | `@reui/timeline` | [reui.io/timeline.tsx](reui.io/timeline.tsx) | [Timeline](https://reui.io/docs/components/timeline) | — |
+| `avatar` | [shadcn/avatar.tsx](shadcn/avatar.tsx) | [Avatar](https://ui.shadcn.com/docs/components/base/avatar) | — |
 | `badge` | [shadcn/badge.tsx](shadcn/badge.tsx) | [Badge](https://ui.shadcn.com/docs/components/base/badge) | 提供 `info`、`success`、`warning` 语义变体 |
 | `breadcrumb` | [shadcn/breadcrumb.tsx](shadcn/breadcrumb.tsx) | [Breadcrumb](https://ui.shadcn.com/docs/components/base/breadcrumb) | 未显式指定 `BreadcrumbList` 则自动包裹 |
 | `button` | [shadcn/button.tsx](shadcn/button.tsx) | [Button](https://ui.shadcn.com/docs/components/base/button) | `pill` 提供全圆角；`isPending` 提供加载态；提供额外 `destructive` 系列样式变体 |
