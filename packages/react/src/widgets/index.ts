@@ -14,6 +14,7 @@ import * as TimelineUI from "@/vendor/reui.io/timeline";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
+import * as ContextMenuUI from "@/vendor/shadcn/context-menu";
 import * as DropdownUI from "@/vendor/shadcn/dropdown-menu";
 import * as FieldUI from "@/vendor/shadcn/field";
 import * as InputGroupUI from "@/vendor/shadcn/input-group";
@@ -269,6 +270,29 @@ export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb,
   Link: BreadcrumbUI.BreadcrumbLink,
   Ellipsis: BreadcrumbUI.BreadcrumbEllipsis,
   Page: BreadcrumbUI.BreadcrumbPage,
+});
+
+/** https://ui.shadcn.com/docs/components/base/context-menu */
+export const ContextMenu = /* @__PURE__ */ Object.assign(ContextMenuUI.ContextMenu, {
+  Trigger: ContextMenuUI.ContextMenuTrigger,
+
+  Content: ContextMenuUI.ContextMenuContent,
+
+  Sub: ContextMenuUI.ContextMenuSub,
+  SubTrigger: ContextMenuUI.ContextMenuSubTrigger,
+  SubContent: ContextMenuUI.ContextMenuSubContent,
+
+  Group: ContextMenuUI.ContextMenuGroup,
+  GroupLabel: ContextMenuUI.ContextMenuLabel,
+  Separator: ContextMenuUI.ContextMenuSeparator,
+
+  Item: ContextMenuUI.ContextMenuItem,
+  Shortcut: ContextMenuUI.ContextMenuShortcut,
+
+  RadioItem: ContextMenuUI.ContextMenuRadioItem,
+  RadioGroup: ContextMenuUI.ContextMenuRadioGroup,
+
+  CheckboxItem: ContextMenuUI.ContextMenuCheckboxItem,
 });
 
 /** https://coss.com/ui/docs/components/alert-dialog */

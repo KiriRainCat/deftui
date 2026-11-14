@@ -32,6 +32,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `carousel` | [shadcn/carousel.tsx](shadcn/carousel.tsx) | [Carousel](https://ui.shadcn.com/docs/components/base/carousel) | — |
 | `checkbox` | [shadcn/checkbox.tsx](shadcn/checkbox.tsx) | [Checkbox](https://ui.shadcn.com/docs/components/base/checkbox) | — |
 | `combobox` | [shadcn/combobox.tsx](shadcn/combobox.tsx) | [Combobox](https://ui.shadcn.com/docs/components/base/combobox) | 将选中标记移至左侧 |
+| `context-menu` | [shadcn/context-menu.tsx](shadcn/context-menu.tsx) | [Context Menu](https://ui.shadcn.com/docs/components/base/context-menu) | — |
 | `direction` | [shadcn/direction.tsx](shadcn/direction.tsx) | [Direction](https://ui.shadcn.com/docs/components/base/direction) | — |
 | `dropdown-menu` | [shadcn/dropdown-menu.tsx](shadcn/dropdown-menu.tsx) | [Dropdown Menu](https://ui.shadcn.com/docs/components/base/dropdown-menu) | — |
 | `field` | [shadcn/field.tsx](shadcn/field.tsx) | [Field](https://ui.shadcn.com/docs/components/base/field) | — |
