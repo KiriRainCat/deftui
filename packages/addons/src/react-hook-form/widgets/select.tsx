@@ -25,13 +25,13 @@ export function RHFSelect<V extends string>(props: Props<V>) {
         <Select.Value placeholder={placeholder} />
       </Select.Trigger>
 
-      <Select.Content>
+      <Select.Popup>
         {options.map((option) => (
           <Select.Item key={option.value} value={option.value} disabled={option.disabled}>
             {option.label}
           </Select.Item>
         ))}
-      </Select.Content>
+      </Select.Popup>
     </Select>
   );
 }

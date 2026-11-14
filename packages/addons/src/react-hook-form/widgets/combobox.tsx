@@ -25,7 +25,7 @@ export function RHFCombobox<V extends string>(props: Props<V>) {
         className={className}
       />
 
-      <Combobox.Content>
+      <Combobox.Popup>
         <Combobox.Empty>{emptyLabel}</Combobox.Empty>
 
         <Combobox.List>
@@ -35,7 +35,7 @@ export function RHFCombobox<V extends string>(props: Props<V>) {
             </Combobox.Item>
           ))}
         </Combobox.List>
-      </Combobox.Content>
+      </Combobox.Popup>
     </Combobox>
   );
 }

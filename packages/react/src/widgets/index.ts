@@ -37,8 +37,7 @@ export const Kbd = /* @__PURE__ */ Object.assign(KbdUI.Kbd, {
 export const Tabs = /* @__PURE__ */ Object.assign(TabsUI.Tabs, {
   List: TabsUI.TabsList,
   Trigger: TabsUI.TabsTrigger,
-
-  Content: TabsUI.TabsContent,
+  Panel: TabsUI.TabsContent,
 });
 
 /** https://coss.com/ui/docs/components/card */
@@ -100,11 +99,11 @@ export const Radio = /* @__PURE__ */ Object.assign(RadioUI.RadioGroupItem, {
 export const Select = /* @__PURE__ */ Object.assign(SelectUI.Select, {
   Trigger: SelectUI.SelectTrigger,
   Value: SelectUI.SelectValue,
-
-  Content: SelectUI.SelectContent,
-  Separator: SelectUI.SelectSeparator,
+  Popup: SelectUI.SelectContent,
 
   Group: SelectUI.SelectGroup,
+  Separator: SelectUI.SelectSeparator,
+
   Label: SelectUI.SelectLabel,
   Item: SelectUI.SelectItem,
 });
@@ -112,9 +111,8 @@ export const Select = /* @__PURE__ */ Object.assign(SelectUI.Select, {
 /** https://coss.com/ui/docs/components/drawer */
 export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
   Trigger: DrawerUI.DrawerTrigger,
-
-  Close: DrawerUI.DrawerClose,
   Popup: DrawerUI.DrawerPopup,
+  Close: DrawerUI.DrawerClose,
 
   Header: DrawerUI.DrawerHeader,
   Panel: DrawerUI.DrawerPanel,
@@ -127,9 +125,8 @@ export const Drawer = /* @__PURE__ */ Object.assign(DrawerUI.Drawer, {
 /** https://coss.com/ui/docs/components/dialog */
 export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
   Trigger: DialogUI.DialogTrigger,
-
-  Close: DialogUI.DialogClose,
   Popup: DialogUI.DialogPopup,
+  Close: DialogUI.DialogClose,
 
   Header: DialogUI.DialogHeader,
   Panel: DialogUI.DialogPanel,
@@ -142,16 +139,14 @@ export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
 /** https://ui.shadcn.com/docs/components/base/tooltip */
 export const Tooltip = /* @__PURE__ */ Object.assign(TooltipUI.Tooltip, {
   Provider: TooltipUI.TooltipProvider,
-
   Trigger: TooltipUI.TooltipTrigger,
-  Content: TooltipUI.TooltipContent,
+  Popup: TooltipUI.TooltipContent,
 });
 
 /** https://ui.shadcn.com/docs/components/base/popover */
 export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
   Trigger: PopoverUI.PopoverTrigger,
-
-  Content: PopoverUI.PopoverContent,
+  Popup: PopoverUI.PopoverContent,
 
   Title: PopoverUI.PopoverTitle,
   Description: PopoverUI.PopoverDescription,
@@ -160,7 +155,6 @@ export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
 /** https://reui.io/docs/components/cascader */
 export const Cascader = /* @__PURE__ */ Object.assign(CascaderUI.Cascader, {
   Trigger: CascaderUI.CascaderTrigger,
-
   Popup: CascaderUI.CascaderContent,
 
   Panel: CascaderUI.CascaderPanel,
@@ -196,8 +190,7 @@ export const Cascader = /* @__PURE__ */ Object.assign(CascaderUI.Cascader, {
 /** https://ui.shadcn.com/docs/components/base/dropdown-menu */
 export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
   Trigger: DropdownUI.DropdownMenuTrigger,
-
-  Content: DropdownUI.DropdownMenuContent,
+  Popup: DropdownUI.DropdownMenuContent,
 
   Sub: DropdownUI.DropdownMenuSub,
   SubTrigger: DropdownUI.DropdownMenuSubTrigger,
@@ -218,15 +211,16 @@ export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
 
 /** https://ui.shadcn.com/docs/components/base/combobox */
 export const Combobox = /* @__PURE__ */ Object.assign(ComboboxUI.Combobox, {
-  Content: ComboboxUI.ComboboxContent,
+  Popup: ComboboxUI.ComboboxContent,
+
   Empty: ComboboxUI.ComboboxEmpty,
   List: ComboboxUI.ComboboxList,
 
   Input: ComboboxUI.ComboboxInput,
-  ChipsInput: ComboboxUI.ComboboxChipsInput,
-
-  Chips: ComboboxUI.ComboboxChips,
   Value: ComboboxUI.ComboboxValue,
+
+  ChipsInput: ComboboxUI.ComboboxChipsInput,
+  Chips: ComboboxUI.ComboboxChips,
   Chip: ComboboxUI.ComboboxChip,
 
   Group: ComboboxUI.ComboboxGroup,
@@ -275,8 +269,7 @@ export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb,
 /** https://ui.shadcn.com/docs/components/base/context-menu */
 export const ContextMenu = /* @__PURE__ */ Object.assign(ContextMenuUI.ContextMenu, {
   Trigger: ContextMenuUI.ContextMenuTrigger,
-
-  Content: ContextMenuUI.ContextMenuContent,
+  Popup: ContextMenuUI.ContextMenuContent,
 
   Sub: ContextMenuUI.ContextMenuSub,
   SubTrigger: ContextMenuUI.ContextMenuSubTrigger,
@@ -298,9 +291,8 @@ export const ContextMenu = /* @__PURE__ */ Object.assign(ContextMenuUI.ContextMe
 /** https://coss.com/ui/docs/components/alert-dialog */
 export const AlertDialog = /* @__PURE__ */ Object.assign(AlertDialogUI.AlertDialog, {
   Trigger: AlertDialogUI.AlertDialogTrigger,
-
-  Close: AlertDialogUI.AlertDialogClose,
   Popup: AlertDialogUI.AlertDialogPopup,
+  Close: AlertDialogUI.AlertDialogClose,
 
   Header: AlertDialogUI.AlertDialogHeader,
   Footer: AlertDialogUI.AlertDialogFooter,
