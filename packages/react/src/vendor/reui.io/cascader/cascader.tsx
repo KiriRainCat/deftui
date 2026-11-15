@@ -366,6 +366,16 @@ export interface CascaderBaseProps<T = unknown> {
   indicator?: boolean
 
   /**
+   * Whether SELECTED rows also get a subtle background fill, the way a nav
+   * panel highlights the current route. Defaults to false, where selection
+   * reads from the check alone. Orthogonal to `indicator`: `indicator={false}
+   * selectedFill` is the embedded panel shape. The fill yields to the hover
+   * and keyboard highlight, and in columns mode a trail row shows the fill
+   * rather than its `data-open` tint.
+   */
+  selectedFill?: boolean
+
+  /**
    * Footer ACTIONS: commands pinned below the list, never rows in it, and never
    * touching the data tree. A childless `<CascaderFooter />` draws these; an
    * action with `items` opens a side-anchored flyout rather than firing.
@@ -733,6 +743,7 @@ function Cascader<T>({
   multiple = false,
   selectable = "leaf",
   indicator = true,
+  selectedFill = false,
   actions,
   cascade = false,
   max,
@@ -2127,6 +2138,7 @@ function Cascader<T>({
       cascade,
       branchesSelectable,
       indicator,
+      selectedFill,
       expandTrigger,
       actions: resolvedActions,
       searchScope,
@@ -2176,6 +2188,7 @@ function Cascader<T>({
       cascade,
       branchesSelectable,
       indicator,
+      selectedFill,
       expandTrigger,
       resolvedActions,
       searchScope,

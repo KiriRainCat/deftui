@@ -60,6 +60,14 @@ const INDICATOR_CLASS =
 const ROW_THEME_CLASS =
   "data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground rounded-sm py-1.5 [&_svg:not([class*='size-'])]:size-4"
 
+// The opt-in fill on a SELECTED row. `not-data-highlighted` makes it and the
+// hover/keyboard highlight mutually exclusive by construction, so the two
+// paints never depend on generated class order. `text-primary` matches the
+// selected-descendant count, and stays distinct from `bg-accent` (hover) and
+// the `bg-accent/60` open-trail tint in columns mode.
+const ROW_SELECTED_FILL_CLASS =
+  "not-data-highlighted:data-selected:bg-primary/10 not-data-highlighted:data-selected:text-primary"
+
 /**
  * The row's gap and type, per style, held apart from the rest of the theme.
  *
@@ -205,6 +213,7 @@ const CascaderItem = React.memo(function CascaderItem({
     multiple,
     branchesSelectable,
     indicator: indicatorEnabled,
+    selectedFill,
     expandTrigger = "click",
     navigate,
     navigateAt,
@@ -756,6 +765,10 @@ const CascaderItem = React.memo(function CascaderItem({
     style: rowStyle,
     className: cn(
       ROW_CLASS,
+      /* The opt-in selected fill. Listed before the caller's `className`, so
+         `indicator={false} selectedFill` keeps the check dropped while the
+         fill stays, and a caller can still override the tint. */
+      selectedFill && ROW_SELECTED_FILL_CLASS,
       /* Three separate reasons to hand the check gutter back. A multi-select
          tree's box leads the row, so the gutter would be 24px of dead space;
          `indicator={false}` drops the check, and keeping the gutter would park

@@ -117,6 +117,8 @@ export interface CascaderActionsContextValue<T = unknown> {
   branchesSelectable: boolean
   /** Draws the SINGLE-SELECT check and its gutter. Ignored in multi-select. */
   indicator: boolean
+  /** Paints a subtle fill on SELECTED rows. Opt-in; see the root prop. */
+  selectedFill: boolean
   expandTrigger?: "click" | "hover"
   actions: CascaderActionItem[]
   searchScope: CascaderSearchScope
