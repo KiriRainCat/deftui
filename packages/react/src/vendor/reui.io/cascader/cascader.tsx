@@ -370,8 +370,7 @@ export interface CascaderBaseProps<T = unknown> {
    * panel highlights the current route. Defaults to false, where selection
    * reads from the check alone. Orthogonal to `indicator`: `indicator={false}
    * selectedFill` is the embedded panel shape. The fill yields to the hover
-   * and keyboard highlight, and in columns mode a trail row shows the fill
-   * rather than its `data-open` tint.
+   * and keyboard highlight.
    */
   selectedFill?: boolean
 

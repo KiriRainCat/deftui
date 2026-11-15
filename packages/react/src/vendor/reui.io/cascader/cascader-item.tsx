@@ -62,11 +62,11 @@ const ROW_THEME_CLASS =
 
 // The opt-in fill on a SELECTED row. `not-data-highlighted` makes it and the
 // hover/keyboard highlight mutually exclusive by construction, so the two
-// paints never depend on generated class order. `text-primary` matches the
-// selected-descendant count, and stays distinct from `bg-accent` (hover) and
-// the `bg-accent/60` open-trail tint in columns mode.
+// paints never depend on generated class order. Accent at 60% keeps the fill
+// below the full-accent highlight, and matches a columns trail row's
+// `data-open` tint, so a selected row and a row on the open path read alike.
 const ROW_SELECTED_FILL_CLASS =
-  "not-data-highlighted:data-selected:bg-primary/10 not-data-highlighted:data-selected:text-primary"
+  "not-data-highlighted:data-selected:bg-accent/60 not-data-highlighted:data-selected:text-accent-foreground"
 
 /**
  * The row's gap and type, per style, held apart from the rest of the theme.

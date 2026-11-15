@@ -136,7 +136,6 @@ function CascaderColumnPanel({
     isIndeterminate,
     retryLevel,
     searchScope,
-    selectedFill,
   } = useCascaderActions()
   const { loadStates, deepResults } = useCascaderState()
 
@@ -188,7 +187,6 @@ function CascaderColumnPanel({
       (children ??
       column.items.map((node, i) => {
         const open = node.value === column.activeValue
-        const selected = isSelected(node)
         return (
           <CascaderItem
             key={node.value}
@@ -199,17 +197,11 @@ function CascaderColumnPanel({
             /* Answered here, not in the row: the trail rows are memoised too. */
             branch={isBranch(node)}
             selectable={isSelectable(node)}
-            selected={selected}
+            selected={isSelected(node)}
             indeterminate={isIndeterminate(node)}
             {...getCascaderMoreProps(node, loadStates)}
             data-open={open || undefined}
-            /* The selected fill wins over the open tint: a selected row on the
-               trail reads as "current route", not "path passing through". */
-            className={
-              open && !(selectedFill && selected)
-                ? "bg-accent/60 text-accent-foreground"
-                : undefined
-            }
+            className={open ? "bg-accent/60 text-accent-foreground" : undefined}
             /* Set metadata is option-only; a trail row is a `role="button"`. */
             {...(column.active
               ? {
