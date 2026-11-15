@@ -1,3 +1,5 @@
+<!-- cSpell: disable -->
+
 # Vendor
 
 使用以下命令查看上游源码及依赖，对比本地后手动选择性更新，保留必要的本地调整。
@@ -70,3 +72,4 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `https://ui.iandefined.com/r/lightbox.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Lightbox](https://ui.iandefined.com/docs/components/lightbox/) | 适配本地组件和尺寸；修正嵌套弹层层级与点击隔离；补充加载失败反馈 |
 | `https://ui.iandefined.com/r/scroll-area.json` | [tailored/lightbox.tsx](tailored/lightbox.tsx) | [Scroll Area](https://ui.iandefined.com/docs/components/scroll-area/) | 作为 Lightbox 的私有依赖内联 |
 | `Tinkerers-Labs/mischief-ui/json-viewer` | [tailored/json-viewer.tsx](tailored/json-viewer.tsx) | [JSON Viewer](https://ui.tinkererslabs.com/docs/components/json-viewer/) | — |
+| `@ncdai/middle-truncation` | [tailored/truncation.tsx](tailored/truncation.tsx) | [Middle Truncation](https://chanhdai.com/components/middle-truncation) | — |

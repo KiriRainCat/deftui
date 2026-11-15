@@ -22,6 +22,7 @@ export { ScrollArea } from "@/vendor/coss/scroll-area";
 
 export { IconSwap } from "@/vendor/tailored/icon-swap";
 export { JsonViewer } from "@/vendor/tailored/json-viewer";
+export { MiddleTruncation } from "@/vendor/tailored/truncation";
 
 export type { CascaderItemState } from "@/vendor/reui.io/cascader/cascader-context";
 export type { CascaderSingleProps, CascaderProps } from "@/vendor/reui.io/cascader/cascader";
