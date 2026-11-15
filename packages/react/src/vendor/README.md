@@ -20,7 +20,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画；footer 垂直内边距收窄 `pt-4`→`pt-3.5`、`pb-[safe-area+4]`→`pb-[safe-area+3.5]` |
 | `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | `font-bold text-xl` 替换为 `font-semibold text-lg` |
 | `@coss/form` | [coss/form.tsx](coss/form.tsx) | [Form](https://coss.com/ui/docs/components/form) | — |
-| `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | — |
+| `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | Root 增加 `flex flex-col`，使 `h-full` Viewport 在 `max-h-*` 约束下收缩并内部滚动，避免溢出 |
 | `@coss/table` | [coss/table.tsx](coss/table.tsx) | [Table](https://coss.com/ui/docs/components/table) | 默认变体的 `TableFooter` 移除底色，与 `card` 变体一样保持透明 |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
 | `@coss/use-media-query` | [coss/hooks/use-media-query.ts](coss/hooks/use-media-query.ts) | [useMediaQuery](https://coss.com/ui/docs/hooks/use-media-query) | 断点：`md` 设为 768px，与 Tailwind 默认值一致 |
