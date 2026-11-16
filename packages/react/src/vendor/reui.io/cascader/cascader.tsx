@@ -300,7 +300,8 @@ export function useCascaderSelection<T = unknown>(): CascaderSelection<T> {
  * - `"drill"`: a branch was entered (row press, level arrow, search hit).
  * - `"back"`: one level up (back control, Backspace on an empty query).
  * - `"breadcrumb"`: a jump to an exact depth in the trail.
- * - `"reveal"`: the reopen navigated to the level holding the selection.
+ * - `"reveal"`: the reopen (or, inline, the initial mount) navigated to the
+ *   level holding the selection.
  * - `"external"`: `setPath` called from outside the primitive's own flows.
  */
 export type CascaderPathChangeReason =
@@ -433,8 +434,9 @@ export interface CascaderBaseProps<T = unknown> {
   /** Custom matcher, replacing label + keywords substring matching. */
   filter?: (node: CascaderNode<T>, normalizedQuery: string) => boolean
 
-  /** On open, navigate to the level holding the selection. Default true.
-   * Not in `mode="tree"`, which has no levels to navigate. */
+  /** On open - or on mount, when `inline` - navigate to the level holding the
+   * selection. Default true. Not in `mode="tree"`, which has no levels to
+   * navigate. */
   revealSelected?: boolean
 
   maxHeight?: number | string
@@ -843,6 +845,11 @@ function Cascader<T>({
   // resets to `"external"`, which is what the consumer's `setPath` reports.
   const pathReasonRef = React.useRef<CascaderPathChangeReason>("external")
   const openReasonRef = React.useRef<string>("none")
+  // Whether the user has navigated (`drill`/`back`/`breadcrumb`), which retires
+  // the inline reveal below: their position outranks following the selection.
+  // A consumer's own `path` prop move never passes through here, but it also
+  // never re-triggers the reveal, which only re-runs on selection changes.
+  const navigatedRef = React.useRef(false)
 
   const [path, setPath] = useControllable<string[]>(
     pathProp,
@@ -870,6 +877,7 @@ function Cascader<T>({
       reason: CascaderPathChangeReason
     ) => {
       pathReasonRef.current = reason
+      if (reason !== "reveal") navigatedRef.current = true
       try {
         setPath(next)
       } finally {
@@ -1794,6 +1802,26 @@ function Cascader<T>({
   React.useEffect(() => {
     if (!open && !inline) setPendingNavigation(null)
   }, [open, inline])
+
+  /* ----------------------------- inline reveal ----------------------------- */
+
+  // An inline panel is born open, so `handleOpenChange` never fires and the
+  // reveal-on-open contract would silently not apply. Mount (or the index
+  // learning the selected node, async data landing) is the inline "open", so
+  // this follows the selection until anyone else moves the path.
+  React.useEffect(() => {
+    if (!inline || !revealSelected || mode === "tree") return
+    if (navigatedRef.current) return
+    // Until the index knows the value the trail is empty; wait, don't reveal
+    // the root and flash the wrong level.
+    const first = toArray(value)[0]
+    if (!first || !index.byValue.has(first)) return
+    const level = getCascaderPath(index, first)
+      .slice(0, -1)
+      .map((node) => node.value)
+    if (!level.length) return
+    setPathWithReason(level, "reveal")
+  }, [inline, revealSelected, mode, value, index, setPathWithReason])
 
   /* ------------------------------- selection ------------------------------ */
 
