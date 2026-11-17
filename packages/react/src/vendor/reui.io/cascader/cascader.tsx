@@ -2505,8 +2505,11 @@ const CHIP_REMOVE_CLASS =
 const CONTENT_SURFACE_CLASS =
   "bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 overflow-hidden ring-1 duration-100 ring-foreground/10 rounded-md shadow-md data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2"
 
+/** Two carriers, one per shape: the popup's `group/combobox-content` covers an
+ * `Empty` placed outside the list, the list's own `group/cascader-list` covers
+ * the inline panel, where no popup ever mounts. */
 const EMPTY_CLASS =
-  "text-muted-foreground hidden w-full justify-center py-2 text-center group-data-empty/combobox-content:flex text-sm"
+  "text-muted-foreground hidden w-full justify-center py-2 text-center group-data-empty/combobox-content:flex group-data-empty/cascader-list:flex text-sm"
 
 /* -------------------------------------------------------------------------- */
 /*                                    Chips                                   */
@@ -3003,6 +3006,10 @@ function CascaderList({
                  the containing block, not the scrollport: it carries the
                  padding the geometry is measured against. */
               virtualized && "relative",
+              /* The one `data-empty` carrier that exists in BOTH shapes: the
+                 popup has its own, an inline panel has no popup, so
+                 `CascaderEmpty` homes in on this group. */
+              "group/cascader-list",
               className
             )}
             {...props}

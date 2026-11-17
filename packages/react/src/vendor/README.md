@@ -24,7 +24,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `@coss/table` | [coss/table.tsx](coss/table.tsx) | [Table](https://coss.com/ui/docs/components/table) | 默认变体的 `TableFooter` 移除底色，与 `card` 变体一样保持透明 |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
 | `@coss/use-media-query` | [coss/hooks/use-media-query.ts](coss/hooks/use-media-query.ts) | [useMediaQuery](https://coss.com/ui/docs/hooks/use-media-query) | 断点：`md` 设为 768px，与 Tailwind 默认值一致 |
-| `@reui/cascader` | [reui.io/cascader/cascader.tsx](reui.io/cascader/cascader.tsx) | [Cascader](https://reui.io/docs/components/cascader) | 新增 `selectedFill` 属性为选中行提供背景填充；`revealSelected` 默认值改为 `false`，并在 `inline` 面板挂载时也生效，`mode="tree"` 下支持一次性展开选中项祖先 |
+| `@reui/cascader` | [reui.io/cascader/cascader.tsx](reui.io/cascader/cascader.tsx) | [Cascader](https://reui.io/docs/components/cascader) | 新增 `selectedFill` 属性为选中行提供背景填充；`revealSelected` 默认值改为 `false`，并在 `inline` 面板挂载时也生效，`mode="tree"` 下支持一次性展开选中项祖先；修复 `Cascader.Empty` 在 `inline` 面板不显示的问题 |
 | `@reui/frame` | [reui.io/frame.tsx](reui.io/frame.tsx) | [Frame](https://reui.io/docs/components/base/frame) | — |
 | `@reui/timeline` | [reui.io/timeline.tsx](reui.io/timeline.tsx) | [Timeline](https://reui.io/docs/components/timeline) | — |
 | `avatar` | [shadcn/avatar.tsx](shadcn/avatar.tsx) | [Avatar](https://ui.shadcn.com/docs/components/base/avatar) | — |
