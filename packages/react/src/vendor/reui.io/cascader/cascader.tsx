@@ -434,9 +434,11 @@ export interface CascaderBaseProps<T = unknown> {
   /** Custom matcher, replacing label + keywords substring matching. */
   filter?: (node: CascaderNode<T>, normalizedQuery: string) => boolean
 
-  /** On open - or on mount, when `inline` - navigate to the level holding the
-   * selection. Default true. Not in `mode="tree"`, which has no levels to
-   * navigate. */
+  /**
+   * On open - or on mount, when `inline` - navigate to the level holding the
+   * selection. In `mode="tree"`, it expands the selection's ancestors once.
+   * @default false
+   */
   revealSelected?: boolean
 
   maxHeight?: number | string
@@ -520,6 +522,18 @@ function toArray(value: string | string[] | undefined): string[] {
   if (value == null) return []
   if (Array.isArray(value)) return value.filter((entry) => entry !== "")
   return value === "" ? [] : [value]
+}
+
+/** The tree half of a reveal: the selection's ancestors merge into what the
+ * user already opened, never replacing it. An updater, so the open and the
+ * inline paths share one dedup and a no-op keeps the previous array. */
+function withRevealedAncestors(
+  ancestors: string[]
+): (prev: string[]) => string[] {
+  return (prev) =>
+    ancestors.every((value) => prev.includes(value))
+      ? prev
+      : [...prev, ...ancestors.filter((value) => !prev.includes(value))]
 }
 
 /* -------------------------------------------------------------------------- */
@@ -765,7 +779,7 @@ function Cascader<T>({
   onInputValueChange,
   searchScope = "level",
   filter,
-  revealSelected = true,
+  revealSelected = false,
   maxHeight,
   virtualize,
   virtualizeThreshold = 100,
@@ -850,6 +864,13 @@ function Cascader<T>({
   // A consumer's own `path` prop move never passes through here, but it also
   // never re-triggers the reveal, which only re-runs on selection changes.
   const navigatedRef = React.useRef(false)
+
+  // Tree's `navigatedRef`: branches the reveal opened (`revealedTreeRef`), and
+  // whether the user has since toggled one (`treeNavigatedRef`), retiring the
+  // inline reveal. A set, not a flag alone: toggling a branch the reveal did
+  // NOT open is no navigation at all and must not retire it.
+  const revealedTreeRef = React.useRef<Set<string>>(new Set())
+  const treeNavigatedRef = React.useRef(false)
 
   const [path, setPath] = useControllable<string[]>(
     pathProp,
@@ -1321,6 +1342,12 @@ function Cascader<T>({
 
   const toggleExpanded = React.useCallback(
     (nodeValue: string) => {
+      // A toggle of a revealed branch is the tree-mode "navigated": the inline
+      // reveal follows the selection no further.
+      if (revealedTreeRef.current.has(nodeValue)) {
+        revealedTreeRef.current.delete(nodeValue)
+        treeNavigatedRef.current = true
+      }
       setExpandedList((prev) =>
         prev.includes(nodeValue)
           ? prev.filter((v) => v !== nodeValue)
@@ -1810,18 +1837,34 @@ function Cascader<T>({
   // learning the selected node, async data landing) is the inline "open", so
   // this follows the selection until anyone else moves the path.
   React.useEffect(() => {
-    if (!inline || !revealSelected || mode === "tree") return
-    if (navigatedRef.current) return
+    if (!inline || !revealSelected) return
+    if (mode === "tree") {
+      if (treeNavigatedRef.current) return
+    } else if (navigatedRef.current) return
     // Until the index knows the value the trail is empty; wait, don't reveal
     // the root and flash the wrong level.
     const first = toArray(value)[0]
     if (!first || !index.byValue.has(first)) return
+
+    if (mode === "tree") {
+      // A tree reveals by EXPANDING, a merge: the user's own toggles are the
+      // whole rest of the state, and re-runs (a refetch rebuilding the index)
+      // only ever add, never reopen what a toggle closed.
+      const ancestors = getCascaderPath(index, first)
+        .slice(0, -1)
+        .map((node) => node.value)
+      if (!ancestors.length) return
+      revealedTreeRef.current = new Set(ancestors)
+      setExpandedList(withRevealedAncestors(ancestors))
+      return
+    }
+
     const level = getCascaderPath(index, first)
       .slice(0, -1)
       .map((node) => node.value)
     if (!level.length) return
     setPathWithReason(level, "reveal")
-  }, [inline, revealSelected, mode, value, index, setPathWithReason])
+  }, [inline, revealSelected, mode, value, index, setPathWithReason, setExpandedList])
 
   /* ------------------------------- selection ------------------------------ */
 
@@ -2107,8 +2150,9 @@ function Cascader<T>({
       }
 
       // Opening onto the level holding the selection is the difference
-      // between "edit this" and "start over". Not in a tree, where `path`
-      // does nothing and the live region announced a level nobody could see.
+      // between "edit this" and "start over". A tree has no path to navigate;
+      // there the reveal expands the selection's ancestors instead, as a
+      // merge, so reopening cannot collapse what the user opened.
       if (revealSelected) {
         setQuery("")
         const first = toArray(value)[0]
@@ -2121,12 +2165,19 @@ function Cascader<T>({
               : [],
             "reveal"
           )
+        } else if (first && index.byValue.has(first)) {
+          const ancestors = getCascaderPath(index, first)
+            .slice(0, -1)
+            .map((node) => node.value)
+          revealedTreeRef.current = new Set(ancestors)
+          setExpandedList(withRevealedAncestors(ancestors))
         }
       }
     },
     [
       setOpen,
       setQuery,
+      setExpandedList,
       revealSelected,
       value,
       index,
