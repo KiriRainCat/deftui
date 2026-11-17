@@ -1,3 +1,4 @@
+import type { HMRIdentity, HMRContext, ModalDefine } from "./hmr-identity";
 import type { ModalDefinitionRecord, ModalView } from "./provider";
 import type { Modal, ModalCall, ModalController, ModalDefinition, ModalHandle, ModalResult } from "./types";
 import type { ModalRegistry, ModalRegistryOptions, ModalRootComponent, ModalRootProps, ModalShowOptions } from "./types";
@@ -5,23 +6,27 @@ import type { ComponentType, ReactNode } from "react";
 
 import { useEffect, useSyncExternalStore } from "react";
 
+import { moduleIdentity, nameIdentity } from "./hmr-identity";
 import { ModalEntry } from "./provider";
 
 interface ModalInstance {
   id: number;
-  definition: ModalDefinitionRecord;
   parentId: number | null;
+  dedupeKey?: string;
+
+  rootConfig: Record<string, unknown>;
+  definition: ModalDefinitionRecord;
   children: Set<ModalInstance>;
   props: Record<string, unknown>;
-  rootConfig: Record<string, unknown>;
-  dedupeKey?: string;
-  phase: "active" | "waiting" | "closing";
+
+  view?: ModalView;
   presented: boolean;
-  resolveResult: (result: ModalResult<unknown>) => void;
+  phase: "active" | "waiting" | "closing";
   rejectResult: (error: unknown) => void;
+  resolveResult: (result: ModalResult<unknown>) => void;
+
   call: ModalCall<Record<string, unknown>, unknown>;
   modal: ModalController<Record<string, unknown>, unknown>;
-  view?: ModalView;
 }
 
 const EMPTY: readonly ModalView[] = [];
@@ -31,18 +36,19 @@ const EMPTY: readonly ModalView[] = [];
  * Definitions are callable components, so modal modules remain Fast Refresh-compatible.
  *
  * @example
- * export const registry = createModalRegistry({ hot: import.meta.hot, key: "modals" });
+ * export const registry = createModalRegistry({ key: "modals" });
  *
  * export const EditDialog = registry.define(Dialog, EditDialogBody);
- * function EditDialogBody({ id }: Modal<{ id: string }>) {
- *   return <Dialog.Popup>{id}</Dialog.Popup>;
- * }
+ * function EditDialogBody({ id }: Modal<{ id: string }>) { return <Dialog.Popup>{id}</Dialog.Popup> }
  *
  * const handle = EditDialog.show({ id: "123" });
+ *
+ * // Use this for better HMR support.
+ * const define = registry.module(import.meta.hot);
  */
 export function createModalRegistry(options?: ModalRegistryOptions): ModalRegistry {
-  const cache = options?.hot
-    ? ((options.hot.data.__deftuiModalRegistries ??= new Map<string, unknown>()) as Map<string, unknown>)
+  const cache = options?.hmr
+    ? ((options.hmr.data.__deftuiModalRegistries ??= new Map<string, unknown>()) as Map<string, unknown>)
     : undefined;
 
   const cached = options && cache?.get(options.key);
@@ -51,10 +57,6 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
   let nextId = 0;
   let snapshot = EMPTY;
   let providerAttached = false;
-
-  const hotDefinitions = options?.hot
-    ? ((options.hot.data.__deftuiModalDefinitions ??= new Map<string, unknown>()) as Map<string, ModalDefinitionRecord>)
-    : undefined;
 
   const roots = new Set<ModalInstance>();
   const instances = new Map<number, ModalInstance>();
@@ -184,11 +186,24 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     publish();
   }
 
+  function isLazyComponent(component: ModalDefinitionRecord["component"]) {
+    return (
+      typeof component === "object" && component !== null && (component as { $$typeof?: unknown }).$$typeof === Symbol.for("react.lazy")
+    );
+  }
+
   function onPresent(id: number, definition: ModalDefinitionRecord) {
     const instance = instances.get(id);
     if (!instance || instance.definition !== definition) return;
 
     instance.presented = true;
+  }
+
+  /** Swap a live instance to a hot-updated definition. */
+  function swapDefinition(instance: ModalInstance, previous: ModalDefinitionRecord, next: ModalDefinitionRecord) {
+    if (instance.definition !== previous || instance.phase !== "active") return;
+    instance.definition = next;
+    instance.presented = isLazyComponent(next.component) ? false : instance.presented;
   }
 
   function discardInstance(instance: ModalInstance, rejection?: { error: unknown }) {
@@ -265,9 +280,20 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     );
   }
 
+  /** Bind define() to a modal module's `import.meta.hot`. */
+  function module(hot: HMRContext | undefined): ModalDefine {
+    const identity = moduleIdentity(hot, options?.key);
+    return ((root, component) => define(root, component, identity)) as ModalDefine;
+  }
+
+  // Registry-scope identity for registry.define(): the component name.
+  // Survives module re-evaluation via the hot.data registry cache.
+  const namedIdentity = options?.hmr ? nameIdentity() : undefined;
+
   function define<Props extends object, Output = void, RootProps extends object = {}>(
     root: ModalRootComponent<RootProps>,
     component: ComponentType<Modal<Props, Output>>,
+    identity: HMRIdentity | undefined = namedIdentity,
   ): ModalDefinition<Props, Output, RootProps> {
     function ModalRoot() {
       return null;
@@ -286,21 +312,11 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
       >["show"],
     }) as ModalDefinition<Props, Output, RootProps>;
 
-    const hotName = options?.hot ? (component.displayName ?? component.name) : undefined;
-    if (hotDefinitions && hotName) {
-      const hotKey = `${options?.key}:${hotName}`;
-      const previous = hotDefinitions.get(hotKey);
-
-      if (previous) {
-        for (const instance of instances.values()) {
-          if (instance.definition !== previous || instance.phase !== "active") continue;
-
-          instance.definition = definitionRecord;
-          instance.presented = false;
-        }
+    const previous = identity?.register(component, definitionRecord);
+    if (previous) {
+      for (const instance of instances.values()) {
+        swapDefinition(instance, previous, definitionRecord);
       }
-
-      hotDefinitions.set(hotKey, definitionRecord);
       publish();
     }
 
@@ -358,22 +374,18 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
 
     instance = {
       id,
-      definition,
+      call,
       parentId,
+      definition,
+      rejectResult,
+      resolveResult,
       children: new Set(),
-      props: props as Record<string, unknown>,
-      rootConfig: { ...options?.rootProps },
       dedupeKey: options?.id,
+      rootConfig: { ...options?.rootProps },
+      props: props as Record<string, unknown>,
       phase: "active",
       presented: false,
-      resolveResult,
-      rejectResult,
-      call,
-      modal: {
-        call,
-        resolve: call.resolve,
-        dismiss: call.dismiss,
-      },
+      modal: { call, resolve: call.resolve, dismiss: call.dismiss },
     };
 
     instances.set(id, instance);
@@ -410,7 +422,7 @@ export function createModalRegistry(options?: ModalRegistryOptions): ModalRegist
     return useSyncExternalStore(subscribe, isAnyModalOpen, getServerOpenSnapshot);
   }
 
-  const registry: ModalRegistry = { Provider, define, dismissAll, dismissTop, isAnyModalOpen, useAnyModalOpen };
+  const registry: ModalRegistry = { Provider, define, module, dismissAll, dismissTop, isAnyModalOpen, useAnyModalOpen };
   if (cache && options) cache.set(options.key, registry);
 
   return registry;

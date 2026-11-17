@@ -1,3 +1,4 @@
+import type { HMRContext, ModalDefine } from "./hmr-identity";
 import type { ComponentType, FunctionComponent, ReactNode } from "react";
 
 /** Props the registry injects into a Base UI Dialog, AlertDialog, Drawer, or Sheet root. */
@@ -82,6 +83,9 @@ export interface ModalRegistry {
     component: ComponentType<Modal<Props, Output>>,
   ): ModalDefinition<Props, Output, RootProps>;
 
+  /** Bind define() to a modal module's `import.meta.hot`; module-scoped HMR identity. */
+  module: (hot: HMRContext | undefined) => ModalDefine;
+
   /** Dismiss every active call, waiting for children to exit before their parents. */
   dismissAll: () => void;
 
@@ -97,7 +101,7 @@ export interface ModalRegistry {
 
 export interface ModalRegistryOptions {
   /** The registration module's `import.meta.hot`. */
-  hot?: { data: Record<string, unknown> };
+  hmr?: HMRContext;
 
   /** Stable across updates and unique among registries in the same module. */
   key: string;
