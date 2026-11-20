@@ -12,17 +12,17 @@ import { Input } from "@/vendor/shadcn/input"
 import { Separator } from "@/vendor/shadcn/separator"
 import {
   Sheet,
-  SheetContent,
   SheetDescription,
   SheetHeader,
+  SheetPopup,
   SheetTitle,
-} from "@/vendor/shadcn/sheet"
+} from "@/vendor/coss/sheet"
 import { Skeleton } from "@/vendor/shadcn/skeleton"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/vendor/shadcn/tooltip"
+} from "@/vendor/coss/tooltip"
 import { PanelLeftIcon } from "lucide-react"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
@@ -182,7 +182,7 @@ function Sidebar({
   if (isMobile) {
     return (
       <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-        <SheetContent
+        <SheetPopup
           dir={dir}
           data-sidebar="sidebar"
           data-slot="sidebar"
@@ -194,13 +194,14 @@ function Sidebar({
             } as React.CSSProperties
           }
           side={side}
+          showCloseButton={false}
         >
           <SheetHeader className="sr-only">
             <SheetTitle>Sidebar</SheetTitle>
             <SheetDescription>Displays the mobile sidebar.</SheetDescription>
           </SheetHeader>
           <div className="flex h-full w-full flex-col">{children}</div>
-        </SheetContent>
+        </SheetPopup>
       </Sheet>
     )
   }

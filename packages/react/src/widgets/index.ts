@@ -1,26 +1,26 @@
 import * as AlertDialogUI from "@/vendor/coss/alert-dialog";
 import * as CardUI from "@/vendor/coss/card";
+import * as ContextMenuUI from "@/vendor/coss/context-menu";
 import * as DialogUI from "@/vendor/coss/dialog";
 import * as DrawerUI from "@/vendor/coss/drawer";
 import * as EmptyUI from "@/vendor/coss/empty";
+import * as DropdownUI from "@/vendor/coss/menu";
+import * as PopoverUI from "@/vendor/coss/popover";
 import * as TableUI from "@/vendor/coss/table";
+import * as TooltipUI from "@/vendor/coss/tooltip";
 import * as FrameUI from "@/vendor/reui.io/frame";
 import * as TimelineUI from "@/vendor/reui.io/timeline";
 import * as AvatarUI from "@/vendor/shadcn/avatar";
 import * as BreadcrumbUI from "@/vendor/shadcn/breadcrumb";
 import * as ButtonGroupUI from "@/vendor/shadcn/button-group";
 import * as ComboboxUI from "@/vendor/shadcn/combobox";
-import * as ContextMenuUI from "@/vendor/shadcn/context-menu";
-import * as DropdownUI from "@/vendor/shadcn/dropdown-menu";
 import * as FieldUI from "@/vendor/shadcn/field";
 import * as InputGroupUI from "@/vendor/shadcn/input-group";
 import * as KbdUI from "@/vendor/shadcn/kbd";
-import * as PopoverUI from "@/vendor/shadcn/popover";
 import * as ProgressUI from "@/vendor/shadcn/progress";
 import * as RadioUI from "@/vendor/shadcn/radio-group";
 import * as SelectUI from "@/vendor/shadcn/select";
 import * as TabsUI from "@/vendor/shadcn/tabs";
-import * as TooltipUI from "@/vendor/shadcn/tooltip";
 
 export * from "./export";
 
@@ -132,23 +132,23 @@ export const Dialog = /* @__PURE__ */ Object.assign(DialogUI.Dialog, {
   Description: DialogUI.DialogDescription,
 });
 
-/** https://ui.shadcn.com/docs/components/base/tooltip */
+/** https://coss.com/ui/docs/components/tooltip */
 export const Tooltip = /* @__PURE__ */ Object.assign(TooltipUI.Tooltip, {
   Provider: TooltipUI.TooltipProvider,
   Trigger: TooltipUI.TooltipTrigger,
   Popup: TooltipUI.TooltipContent,
 });
 
-/** https://ui.shadcn.com/docs/components/base/popover */
+/** https://coss.com/ui/docs/components/popover */
 export const Popover = /* @__PURE__ */ Object.assign(PopoverUI.Popover, {
   Trigger: PopoverUI.PopoverTrigger,
-  Popup: PopoverUI.PopoverContent,
+  Popup: PopoverUI.PopoverPopup,
 
   Title: PopoverUI.PopoverTitle,
   Description: PopoverUI.PopoverDescription,
 });
 
-/** https://ui.shadcn.com/docs/components/base/dropdown-menu */
+/** https://coss.com/ui/docs/components/menu */
 export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
   Trigger: DropdownUI.DropdownMenuTrigger,
   Popup: DropdownUI.DropdownMenuContent,
@@ -162,6 +162,7 @@ export const Dropdown = /* @__PURE__ */ Object.assign(DropdownUI.DropdownMenu, {
   Separator: DropdownUI.DropdownMenuSeparator,
 
   Item: DropdownUI.DropdownMenuItem,
+  LinkItem: DropdownUI.MenuLinkItem,
   Shortcut: DropdownUI.DropdownMenuShortcut,
 
   RadioItem: DropdownUI.DropdownMenuRadioItem,
@@ -227,20 +228,21 @@ export const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbUI.Breadcrumb,
   Page: BreadcrumbUI.BreadcrumbPage,
 });
 
-/** https://ui.shadcn.com/docs/components/base/context-menu */
+/** https://coss.com/ui/docs/components/context-menu */
 export const ContextMenu = /* @__PURE__ */ Object.assign(ContextMenuUI.ContextMenu, {
   Trigger: ContextMenuUI.ContextMenuTrigger,
-  Popup: ContextMenuUI.ContextMenuContent,
+  Popup: ContextMenuUI.ContextMenuPopup,
 
   Sub: ContextMenuUI.ContextMenuSub,
   SubTrigger: ContextMenuUI.ContextMenuSubTrigger,
-  SubContent: ContextMenuUI.ContextMenuSubContent,
+  SubContent: ContextMenuUI.ContextMenuSubPopup,
 
   Group: ContextMenuUI.ContextMenuGroup,
-  GroupLabel: ContextMenuUI.ContextMenuLabel,
+  GroupLabel: ContextMenuUI.ContextMenuGroupLabel,
   Separator: ContextMenuUI.ContextMenuSeparator,
 
   Item: ContextMenuUI.ContextMenuItem,
+  LinkItem: ContextMenuUI.ContextMenuLinkItem,
   Shortcut: ContextMenuUI.ContextMenuShortcut,
 
   RadioItem: ContextMenuUI.ContextMenuRadioItem,

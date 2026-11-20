@@ -7,9 +7,9 @@ import { CalendarIcon } from "lucide-react";
 import { useState } from "react";
 
 import { Calendar } from "@/vendor/coss/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/vendor/coss/popover";
 import { Button } from "@/vendor/shadcn/button";
 import { Input } from "@/vendor/shadcn/input";
-import { Popover, PopoverContent, PopoverTrigger } from "@/vendor/shadcn/popover";
 
 type PickerProps<T> = Omit<ComponentProps<typeof Button>, "children" | "render" | "value" | "defaultValue" | "onChange"> & {
   value?: T | null;

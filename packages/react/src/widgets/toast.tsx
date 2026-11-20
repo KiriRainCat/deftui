@@ -1,1 +1,1 @@
-export { toast, Toaster as ToastProvider } from "@/vendor/shadcn/toast";
+export { toastManager as toast, ToastProvider, AnchoredToastProvider } from "@/vendor/coss/toast";
