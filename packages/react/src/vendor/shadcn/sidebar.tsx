@@ -22,7 +22,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/vendor/shadcn/tooltip"
+} from "@/vendor/coss/tooltip"
 import { PanelLeftIcon } from "lucide-react"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
