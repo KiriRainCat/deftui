@@ -30,10 +30,10 @@ export function ContextMenuTrigger({
 export function ContextMenuPopup({
   children,
   className,
-  sideOffset = 0,
-  align = "start",
-  alignOffset = 4,
-  side = "inline-end",
+  sideOffset = 4,
+  align = "center",
+  alignOffset,
+  side = "bottom",
   anchor,
   portalProps,
   ...props
