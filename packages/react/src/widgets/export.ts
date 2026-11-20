@@ -3,6 +3,7 @@ export * from "./sidebar";
 export * from "./datetime";
 export * from "./dropzone";
 export * from "./cascader";
+export * from "./paragraph";
 export * from "./multimedia";
 export * from "./pagination";
 
@@ -23,4 +24,3 @@ export { ScrollArea } from "@/vendor/coss/scroll-area";
 
 export { IconSwap } from "@/vendor/tailored/icon-swap";
 export { JsonViewer } from "@/vendor/tailored/json-viewer";
-export { MiddleTruncation } from "@/vendor/tailored/truncation";
