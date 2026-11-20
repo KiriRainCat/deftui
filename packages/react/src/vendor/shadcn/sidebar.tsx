@@ -40,6 +40,7 @@ type SidebarContextProps = {
   setOpenMobile: (open: boolean) => void
   isMobile: boolean
   toggleSidebar: () => void
+  style: React.CSSProperties
 }
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null)
@@ -58,7 +59,7 @@ function SidebarProvider({
   open: openProp,
   onOpenChange: setOpenProp,
   className,
-  style,
+  style: styleProp,
   children,
   ...props
 }: React.ComponentProps<"div"> & {
@@ -113,6 +114,19 @@ function SidebarProvider({
   // This makes it easier to style the sidebar with Tailwind classes.
   const state = open ? "expanded" : "collapsed"
 
+  // Width CSS variables, resolvable via the `style` prop. The mobile sidebar
+  // renders in a portal outside this wrapper, so it re-applies them from context.
+  const style = React.useMemo(
+    () =>
+      ({
+        "--sidebar-width": SIDEBAR_WIDTH,
+        "--sidebar-width-mobile": SIDEBAR_WIDTH_MOBILE,
+        "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
+        ...styleProp,
+      }) as React.CSSProperties,
+    [styleProp]
+  )
+
   const contextValue = React.useMemo<SidebarContextProps>(
     () => ({
       state,
@@ -122,21 +136,16 @@ function SidebarProvider({
       openMobile,
       setOpenMobile,
       toggleSidebar,
+      style,
     }),
-    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
+    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar, style]
   )
 
   return (
     <SidebarContext.Provider value={contextValue}>
       <div
         data-slot="sidebar-wrapper"
-        style={
-          {
-            "--sidebar-width": SIDEBAR_WIDTH,
-            "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
-            ...style,
-          } as React.CSSProperties
-        }
+        style={style}
         className={cn(
           "group/sidebar-wrapper flex min-h-svh w-full has-data-[variant=inset]:bg-sidebar",
           className
@@ -162,7 +171,7 @@ function Sidebar({
   variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
 }) {
-  const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
+  const { isMobile, state, openMobile, setOpenMobile, style } = useSidebar()
 
   if (collapsible === "none") {
     return (
@@ -187,12 +196,8 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
-          style={
-            {
-              "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-            } as React.CSSProperties
-          }
+          className="w-(--sidebar-width-mobile) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+          style={style}
           side={side}
           showCloseButton={false}
         >

@@ -52,7 +52,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `radio-group` | [shadcn/radio-group.tsx](shadcn/radio-group.tsx) | [Radio Group](https://ui.shadcn.com/docs/components/base/radio-group) | — |
 | `select` | [shadcn/select.tsx](shadcn/select.tsx) | [Select](https://ui.shadcn.com/docs/components/base/select) | `alignItemWithTrigger` 改为默认 `false`；未显式指定 `SelectGroup` 则自动包裹；将选中标记移至左侧 |
 | `separator` | [shadcn/separator.tsx](shadcn/separator.tsx) | [Separator](https://ui.shadcn.com/docs/components/base/separator) | — |
-| `sidebar` | [shadcn/sidebar.tsx](shadcn/sidebar.tsx) | [Sidebar](https://ui.shadcn.com/docs/components/base/sidebar) | 重映射部分 shadcn 导入为 coss 版本 |
+| `sidebar` | [shadcn/sidebar.tsx](shadcn/sidebar.tsx) | [Sidebar](https://ui.shadcn.com/docs/components/base/sidebar) | 重映射部分 shadcn 导入为 coss 版本；修复 `--sidebar-width-mobile` 覆写无效的问题 |
 | `skeleton` | [shadcn/skeleton.tsx](shadcn/skeleton.tsx) | [Skeleton](https://ui.shadcn.com/docs/components/base/skeleton) | — |
 | `spinner` | [shadcn/spinner.tsx](shadcn/spinner.tsx) | [Spinner](https://ui.shadcn.com/docs/components/base/spinner) | — |
 | `switch` | [shadcn/switch.tsx](shadcn/switch.tsx) | [Switch](https://ui.shadcn.com/docs/components/base/switch) | — |
