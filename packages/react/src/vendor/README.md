@@ -16,7 +16,7 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画；footer 垂直内边距收窄 `py-4` → `py-3.5` |
 | `@coss/calendar` | [coss/calendar.tsx](coss/calendar.tsx) | [Calendar](https://coss.com/ui/docs/components/calendar) | 根据 `navigator.language` 自动设置 `locale` 为 zhCN 或 enUS |
 | `@coss/card` | [coss/card.tsx](coss/card.tsx) | [Card](https://coss.com/ui/docs/components/card) | 用 `--card-spacing` 与 `--card-gap` 替代分段 padding；新增 `spacing`、`gap` 属性写入对应变量；标题改为 `text-base font-semibold leading-normal`；首尾图片贴边并补圆角 |
-| `@coss/context-menu` | [coss/context-menu.tsx](coss/context-menu.tsx) | [Context Menu](https://coss.com/ui/docs/components/context-menu) | — |
+| `@coss/context-menu` | [coss/context-menu.tsx](coss/context-menu.tsx) | [Context Menu](https://coss.com/ui/docs/components/context-menu) | 弹层默认改为 `side="inline-end"`、`align="start"`、`alignOffset=4`、`sideOffset=0`，在光标右下方弹出 |
 | `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画；footer 垂直内边距收窄 `py-4` → `py-3.5` |
 | `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画；footer 垂直内边距收窄 `pt-4`→`pt-3.5`、`pb-[safe-area+4]`→`pb-[safe-area+3.5]` |
 | `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | `font-bold text-xl` 替换为 `font-semibold text-lg` |
