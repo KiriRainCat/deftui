@@ -3,7 +3,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@import "./styles.motion.css";
 @import "./styles.shadcn.css";
 @import "./styles.tokens.css";
 

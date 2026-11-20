@@ -24,7 +24,7 @@ import {
   DropdownMenu,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/vendor/coss/menu";
+} from "@/vendor/shadcn/dropdown-menu";
 import { Skeleton } from "@/vendor/shadcn/skeleton";
 import { Spinner } from "@/vendor/shadcn/spinner";
 

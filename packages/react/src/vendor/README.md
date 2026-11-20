@@ -16,18 +16,12 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `@coss/alert-dialog` | [coss/alert-dialog.tsx](coss/alert-dialog.tsx) | [Alert Dialog](https://coss.com/ui/docs/components/alert-dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画；footer 垂直内边距收窄 `py-4` → `py-3.5` |
 | `@coss/calendar` | [coss/calendar.tsx](coss/calendar.tsx) | [Calendar](https://coss.com/ui/docs/components/calendar) | 根据 `navigator.language` 自动设置 `locale` 为 zhCN 或 enUS |
 | `@coss/card` | [coss/card.tsx](coss/card.tsx) | [Card](https://coss.com/ui/docs/components/card) | 用 `--card-spacing` 与 `--card-gap` 替代分段 padding；新增 `spacing`、`gap` 属性写入对应变量；标题改为 `text-base font-semibold leading-normal`；首尾图片贴边并补圆角 |
-| `@coss/context-menu` | [coss/context-menu.tsx](coss/context-menu.tsx) | [Context Menu](https://coss.com/ui/docs/components/context-menu) | — |
 | `@coss/dialog` | [coss/dialog.tsx](coss/dialog.tsx) | [Dialog](https://coss.com/ui/docs/components/dialog) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画；footer 垂直内边距收窄 `py-4` → `py-3.5` |
 | `@coss/drawer` | [coss/drawer.tsx](coss/drawer.tsx) | [Drawer](https://coss.com/ui/docs/components/drawer) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画；footer 垂直内边距收窄 `pt-4`→`pt-3.5`、`pb-[safe-area+4]`→`pb-[safe-area+3.5]` |
 | `@coss/empty` | [coss/empty.tsx](coss/empty.tsx) | [Empty](https://coss.com/ui/docs/components/empty) | `font-bold text-xl` 替换为 `font-semibold text-lg` |
 | `@coss/form` | [coss/form.tsx](coss/form.tsx) | [Form](https://coss.com/ui/docs/components/form) | — |
-| `@coss/menu` | [coss/menu.tsx](coss/menu.tsx) | [Menu](https://coss.com/ui/docs/components/menu) | — |
-| `@coss/popover` | [coss/popover.tsx](coss/popover.tsx) | [Popover](https://coss.com/ui/docs/components/popover) | — |
 | `@coss/scroll-area` | [coss/scroll-area.tsx](coss/scroll-area.tsx) | [Scroll Area](https://coss.com/ui/docs/components/scroll-area) | Root 增加 `flex flex-col`，使 `h-full` Viewport 在 `max-h-*` 约束下收缩并内部滚动，避免溢出 |
-| `@coss/sheet` | [coss/sheet.tsx](coss/sheet.tsx) | [Sheet](https://coss.com/ui/docs/components/sheet) | `font-bold text-xl` 替换为 `font-semibold text-lg`；用 `@starting-style` 支持初始打开时的入场动画 |
 | `@coss/table` | [coss/table.tsx](coss/table.tsx) | [Table](https://coss.com/ui/docs/components/table) | 默认变体的 `TableFooter` 移除底色，与 `card` 变体一样保持透明 |
-| `@coss/toast` | [coss/toast.tsx](coss/toast.tsx) | [Toast](https://coss.com/ui/docs/components/toast) | — |
-| `@coss/tooltip` | [coss/tooltip.tsx](coss/tooltip.tsx) | [Tooltip](https://coss.com/ui/docs/components/tooltip) | — |
 | `@coss/use-copy-to-clipboard` | [coss/hooks/use-copy-to-clipboard.ts](coss/hooks/use-copy-to-clipboard.ts) | [useCopyToClipboard](https://coss.com/ui/docs/hooks/use-copy-to-clipboard) | — |
 | `@coss/use-media-query` | [coss/hooks/use-media-query.ts](coss/hooks/use-media-query.ts) | [useMediaQuery](https://coss.com/ui/docs/hooks/use-media-query) | 断点：`md` 设为 768px，与 Tailwind 默认值一致 |
 | `@reui/cascader` | [reui.io/cascader/cascader.tsx](reui.io/cascader/cascader.tsx) | [Cascader](https://reui.io/docs/components/cascader) | 新增 `selectedFill` 属性为选中行提供背景填充；`revealSelected` 默认值改为 `false`，并在 `inline` 面板挂载时也生效，`mode="tree"` 下支持一次性展开选中项祖先；修复 `Cascader.Empty` 在 `inline` 面板不显示的问题 |
@@ -41,13 +35,16 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `carousel` | [shadcn/carousel.tsx](shadcn/carousel.tsx) | [Carousel](https://ui.shadcn.com/docs/components/base/carousel) | — |
 | `checkbox` | [shadcn/checkbox.tsx](shadcn/checkbox.tsx) | [Checkbox](https://ui.shadcn.com/docs/components/base/checkbox) | — |
 | `combobox` | [shadcn/combobox.tsx](shadcn/combobox.tsx) | [Combobox](https://ui.shadcn.com/docs/components/base/combobox) | 将选中标记移至左侧 |
+| `context-menu` | [shadcn/context-menu.tsx](shadcn/context-menu.tsx) | [Context Menu](https://ui.shadcn.com/docs/components/base/context-menu) | — |
 | `direction` | [shadcn/direction.tsx](shadcn/direction.tsx) | [Direction](https://ui.shadcn.com/docs/components/base/direction) | — |
+| `dropdown-menu` | [shadcn/dropdown-menu.tsx](shadcn/dropdown-menu.tsx) | [Dropdown Menu](https://ui.shadcn.com/docs/components/base/dropdown-menu) | — |
 | `field` | [shadcn/field.tsx](shadcn/field.tsx) | [Field](https://ui.shadcn.com/docs/components/base/field) | — |
 | `input` | [shadcn/input.tsx](shadcn/input.tsx) | [Input](https://ui.shadcn.com/docs/components/base/input) | 参考 coss ui 处理自动填充的文字颜色，用背景色过渡抑制浏览器底色、内阴影绘制填充色 |
 | `input-group` | [shadcn/input-group.tsx](shadcn/input-group.tsx) | [Input Group](https://ui.shadcn.com/docs/components/base/input-group) | — |
 | `kbd` | [shadcn/kbd.tsx](shadcn/kbd.tsx) | [Kbd](https://ui.shadcn.com/docs/components/base/kbd) | — |
 | `label` | [shadcn/label.tsx](shadcn/label.tsx) | [Label](https://ui.shadcn.com/docs/components/base/label) | — |
 | `pagination` | [shadcn/pagination.tsx](shadcn/pagination.tsx) | [Pagination](https://ui.shadcn.com/docs/components/base/pagination) | 未显式指定 `PaginationContent` 则自动包裹 |
+| `popover` | [shadcn/popover.tsx](shadcn/popover.tsx) | [Popover](https://ui.shadcn.com/docs/components/base/popover) | — |
 | `progress` | [shadcn/progress.tsx](shadcn/progress.tsx) | [Progress](https://ui.shadcn.com/docs/components/base/progress) | — |
 | `radio-group` | [shadcn/radio-group.tsx](shadcn/radio-group.tsx) | [Radio Group](https://ui.shadcn.com/docs/components/base/radio-group) | — |
 | `select` | [shadcn/select.tsx](shadcn/select.tsx) | [Select](https://ui.shadcn.com/docs/components/base/select) | `alignItemWithTrigger` 改为默认 `false`；未显式指定 `SelectGroup` 则自动包裹；将选中标记移至左侧 |
@@ -58,6 +55,8 @@ shadcn 组件使用 `components.json` 中的 `base-vega` 风格和 Lucide 图标
 | `switch` | [shadcn/switch.tsx](shadcn/switch.tsx) | [Switch](https://ui.shadcn.com/docs/components/base/switch) | — |
 | `tabs` | [shadcn/tabs.tsx](shadcn/tabs.tsx) | [Tabs](https://ui.shadcn.com/docs/components/base/tabs) | — |
 | `textarea` | [shadcn/textarea.tsx](shadcn/textarea.tsx) | [Textarea](https://ui.shadcn.com/docs/components/base/textarea) | — |
+| `toast` | [shadcn/toast.tsx](shadcn/toast.tsx) | [Toast](https://ui.shadcn.com/docs/components/base/toast) | — |
+| `tooltip` | [shadcn/tooltip.tsx](shadcn/tooltip.tsx) | [Tooltip](https://ui.shadcn.com/docs/components/base/tooltip) | — |
 
 ## Tailored
 
