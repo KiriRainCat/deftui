@@ -4,6 +4,7 @@ import * as DialogUI from "@/vendor/coss/dialog";
 import * as DrawerUI from "@/vendor/coss/drawer";
 import * as EmptyUI from "@/vendor/coss/empty";
 import * as TableUI from "@/vendor/coss/table";
+import * as TooltipUI from "@/vendor/coss/tooltip";
 import * as FrameUI from "@/vendor/reui.io/frame";
 import * as TimelineUI from "@/vendor/reui.io/timeline";
 import * as AvatarUI from "@/vendor/shadcn/avatar";
@@ -20,7 +21,6 @@ import * as ProgressUI from "@/vendor/shadcn/progress";
 import * as RadioUI from "@/vendor/shadcn/radio-group";
 import * as SelectUI from "@/vendor/shadcn/select";
 import * as TabsUI from "@/vendor/shadcn/tabs";
-import * as TooltipUI from "@/vendor/shadcn/tooltip";
 
 export * from "./export";
 
